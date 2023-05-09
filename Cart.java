@@ -72,7 +72,7 @@ public class Cart {
             double discount = item.getDiscount();
             double price = item.getPrice();
             int quantity = item.getAvailableQuantity();
-            subTotal += (price * quantity * discount)/100;
+            subTotal += (price * quantity * discount);
         }
         return subTotal;
     }
