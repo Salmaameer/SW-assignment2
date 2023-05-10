@@ -68,26 +68,10 @@ public class Register {
         if (name.length() < 3) {
             System.out.println("Name must be at least 3 characters long. Please try again.");
         } else {
-            customer.setName(name);
+            customer.setCustomerName(name);
             break;
         }
     }
-
-    while (true) {
-        System.out.print("Enter your id: ");
-        String id =scanner.nextLine();
-        if (id.length() < 8) {
-            System.out.println("ID must be at least 8 characters long. Please try again.");
-        } else if (!id.matches("\\d+")) {
-            System.out.println("ID must contain digits only. Please try again.");
-        } else if (idExists(id)) {
-            System.out.println("ID already exists. Please try again with a different ID.");
-        } else {
-            customer.setId(id);
-            break;
-        }
-    }
-
     while (true) {
         System.out.print("Enter your phone number: ");
         String phoneNo = scanner.nextLine();
@@ -104,7 +88,7 @@ public class Register {
     // Save user credentials to file
     try {
         FileWriter writer = new FileWriter("login.txt", true);
-        writer.write(customer.getEmail()+ "," + customer.getPassword() + "," +customer.getName()+","+ customer.getId() + "," + customer.getPhoneNo() + "\n");
+        writer.write(customer.getEmail()+ "," + customer.getPassword() + "," +customer.getCustomerName()+ "," + customer.getPhoneNo() + "\n");
         writer.close();
         System.out.println("User registered successfully.");
     } catch (IOException e) {
@@ -124,7 +108,7 @@ public class Register {
 
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length == 5 && parts[0].equals(username)) {
+                if (parts.length == 4 && parts[0].equals(username)) {
                     reader.close();
                     return true;
                 }
@@ -138,33 +122,6 @@ public class Register {
 
         return false;
     }
-     private boolean idExists(String id) {
-        try { 
-            File file = new File("login.txt");
-            if (!file.exists()) {
-                return false;
-            }
-
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length == 5 && parts[3].equals(id)) {
-                    reader.close();
-                    return true;
-                }
-            }
-
-            reader.close();
-        } catch (IOException e) {
-            System.out.println("An error occurred while reading the login file.");
-            e.printStackTrace();
-        }
-
-        return false;
-    }
-
 }
 
    
