@@ -1,6 +1,21 @@
 public class mainDemo {
 
     public  static void  main(String[] args){
+        
+        Scanner scanner = new Scanner(System.in);
+       
+        System.out.println("Do you you want to login or register to the system?\n 1-regestr. \n 2-login.");
+       int choice=scanner.nextInt();
+        if(choice==1){
+          
+            Register registration = new Register();
+            registration.register();
+        }
+        if(choice==2){
+       login loginprocess=new login();
+       loginprocess.userlogin();
+        }
+        
         Order o = new Order();
 
         System.out.println(o.getDateCreated());
