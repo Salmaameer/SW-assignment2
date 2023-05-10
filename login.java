@@ -16,9 +16,8 @@ import java.util.Scanner;
 public class login {
     private String username;
     private String password;
-    private String ID;
-    public void userlogin(){
-    
+    public Customer userlogin(){
+    Customer customer=new Customer();
        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to login");
@@ -29,21 +28,23 @@ public class login {
             System.out.print("Enter your password:");
             password = scanner.nextLine();
           
-             System.out.print("Enter your id:");
-            ID = scanner.nextLine();
-            
-            
-            if(acountExists(username,password,ID)){
+
+                     
+            if(acountExists(username,password)){
              System.out.print("successful ,welcome to your page: ");
-             break;
+             Customer loginCustomer=new Customer(username,password);
+             return loginCustomer;
+             
             }
             else{
              System.out.print("ooooops! this account doesn't exist,please try again: \n");
+               Customer NoCustomer=new Customer("No name","No password");
+             return NoCustomer;
              
             }
         }
     }
-    private boolean acountExists(String username,String password,String ID) {
+    private boolean acountExists(String username,String password) {
         try {
             File file = new File("login.txt");
             if (!file.exists()) {
@@ -55,7 +56,7 @@ public class login {
 
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length == 5 && parts[0].equals(username)&&parts[1].equals(password)&&parts[3].equals(ID)) {
+                if (parts.length == 4 && parts[0].equals(username)&&parts[1].equals(password)) {
                     reader.close();
                     return true;
                 }
@@ -70,3 +71,4 @@ public class login {
         return false;
     }
 }
+
