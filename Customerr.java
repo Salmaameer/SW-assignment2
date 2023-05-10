@@ -1,7 +1,7 @@
 
 // demo class 
 
-public class Customer {
+public class Customerr {
 
     private static int customerId;
     private String customerName;
@@ -11,7 +11,7 @@ public class Customer {
     private String phoneNo;
 
 
-    public Customer() {
+    public Customerr() {
             ++customerId;
             
 

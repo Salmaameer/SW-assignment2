@@ -1,10 +1,25 @@
  public class Customer {
      private String name;
-    private String id;
+    private int id;
     private String email;
     private String password;
     private String phoneNo;
     private double loyaltyPoints;
+    private Address address;
+    private Cart cCart;
+    
+
+    public Cart getcCart() {
+        return cCart;
+    }
+
+    public void setcCart(Cart cCart) {
+        this.cCart = cCart;
+    }
+
+    public Customer() {
+        ++id;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -14,11 +29,11 @@
         return name;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -51,5 +66,13 @@
 
     public double getLoyaltyPoints() {
         return loyaltyPoints;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

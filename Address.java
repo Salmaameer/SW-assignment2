@@ -38,7 +38,7 @@ public class Address {
     
    
     
-}
+
     public String getGovernrate() {
         return governrate;
     }
@@ -54,3 +54,4 @@ public class Address {
     public String getApartmentNo() {
         return apartmentNo;
     }
+}

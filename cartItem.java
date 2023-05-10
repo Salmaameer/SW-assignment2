@@ -1,4 +1,3 @@
-package toffee;
 
 public class cartItem {
     private String name;

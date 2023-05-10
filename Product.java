@@ -1,4 +1,3 @@
-package toffee;
 
 public class Product {
     public String name;

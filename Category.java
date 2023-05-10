@@ -1,4 +1,3 @@
-package toffee;
 
 public class Category {
     private String name;

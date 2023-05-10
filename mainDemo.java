@@ -20,7 +20,7 @@ public class mainDemo {
 
         System.out.println(o.getDateCreated());
 
-        Customer c  = new Customer();
+        Customerr c  = new Customer();
         // c.getCustomerId;
         // c.showAddress();
     
@@ -32,8 +32,8 @@ public class mainDemo {
         System.out.println(o2.getCustomerId());
 
         
-Payment pay = new Payment(o,"CASH")
-        System.out.println(pat.getPaymentMethod());
+// Payment pay = new Payment(o,"CASH")
+//         System.out.println(pat.getPaymentMethod());
         
 
         

@@ -18,10 +18,13 @@ public class Order {
     private static int orderID;
     private String dateCreated;
     // private Date dateShipped; 
+    private Customer oCustomer;
     private int oCustomerId;
     private String oCustomerName;
     private Address oCustomerAddress;
     private OrderStatus orderStatus;
+    private OrderDetails orderDetails;
+    private Payment payment;
     
 
 
@@ -34,6 +37,8 @@ public class Order {
     Order(){
         ++orderID;
         orderStatus = OrderStatus.waitPAYMENT;
+        
+
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime now = LocalDateTime.now();  
         dateCreated = ((String)dateFormat.format(now));
@@ -45,29 +50,42 @@ public class Order {
 
     Order(Customer customer){
 
-        this.orderID = ++orderID;
+       ++orderID;
+       
         orderStatus = OrderStatus.waitPAYMENT;
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime now = LocalDateTime.now();  
         dateCreated = ((String)dateFormat.format(now));
 
-        oCustomerId = customer.getCustomerId();
-        oCustomerName = customer.getCustomerName();
-        oCustomerAddress = customer.getCustomerAddress();
+        oCustomerId = customer.getId();
+        oCustomerName = customer.getName();
+        oCustomerAddress = customer.getAddress();
 
         DateTimeFormatter dateFormt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime no = LocalDateTime.now();  
         dateCreated = ((String)dateFormt.format(no));
-
-
-
-
-       
+        
 
     }
-    
 
 
+    public void pay(){
+        Payment pay ;
+        if(payment.getPaymentMethod() ==  PaymentMethod.CASH){
+            
+        }
+        
+
+    }
+
+
+    public void orderSubTotal(){
+
+        // Cart cart = customer.getcCart();
+        // if(paymen)
+        // orderDetails.setOrderSubTotal( cart.getSubTotal());
+
+    }
 
     public void setOrderStatus(OrderStatus os){
         orderStatus = os;
@@ -102,9 +120,9 @@ public class Order {
         return dateCreated;
     }
 
-    public Date getDateShipped() {
-        return dateShipped;
-    }
+    // public Date getDateShipped() {
+    //     return dateShipped;
+    // }
 
     public int getCustomerId() {
         return oCustomerId;

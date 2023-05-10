@@ -24,9 +24,30 @@ public class Payment {
 
 
     
-    public Payment(Order order , String paymentMethod) {
+    public Payment(Order order ) {
         
        pOrderId =  order.getOrderID();
+       
+    //    payd = payd.toUpperCase();
+
+    //    switch(payd){
+    //     case "CASH" :
+    //         paymentMethod = PaymentMethod.CASH;
+    //         break;
+
+    //     case "eWALLET" :
+    //         paymentMethod = PaymentMethod.eWALLET;
+    //         break;    
+
+    //     case "LOYALTYPOINTS" :
+    //         paymentMethod = PaymentMethod.LOYALTYPOINTS;
+    //         break;   
+            
+            
+    //     case " GIFTCARD" :
+    //         paymentMethod = PaymentMethod.GIFTCARD;
+    //         break;      
+    //    }
        
     }
 
@@ -41,6 +62,7 @@ public class Payment {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime now = LocalDateTime.now();  
         paymentDate = ((String)dateFormat.format(now));
+        paymentMethod = PaymentMethod.CASH;
         
         
     }
@@ -72,8 +94,30 @@ public class Payment {
     public PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
-    public void setPaymentMethod(PaymentMethod paymentMethod) {
-        this.paymentMethod = paymentMethod;
+    public void setPaymentMethod(String payd) {
+
+        payd = payd.toUpperCase();
+
+       switch(payd){
+        case "CASH" :
+            System.out.println("Cash will cost you 20 pound more.");
+            paymentMethod = PaymentMethod.CASH;
+            break;
+
+        case "eWALLET" :
+            paymentMethod = PaymentMethod.eWALLET;
+            break;    
+
+        case "LOYALTYPOINTS" :
+            paymentMethod = PaymentMethod.LOYALTYPOINTS;
+            break;   
+            
+            
+        case " GIFTCARD" :
+            paymentMethod = PaymentMethod.GIFTCARD;
+            break;      
+       }
+       
     }
     
 
