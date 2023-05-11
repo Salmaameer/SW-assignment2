@@ -2,13 +2,13 @@ import java.util.random.RandomGenerator;
 
 public class mainDemo {
 
-    public int createOtp(){
-        int otp = new Random().nextInt(9) + new Random().nextInt(9) + 
-        new Random().nextInt(9) + new Random().nextInt(9) + 
-        new Random().nextInt(9) + new Random().nextInt(9);
+    // public int createOtp(){
+    //     int otp = new Random().nextInt(9) + new Random().nextInt(9) + 
+    //     new Random().nextInt(9) + new Random().nextInt(9) + 
+    //     new Random().nextInt(9) + new Random().nextInt(9);
 
-        return otp;
-    }
+    //     return otp;
+    // }
     public  static void  main(String[] args){
         
         Scanner scanner = new Scanner(System.in);

@@ -59,7 +59,7 @@ public class OrderDetails {
 
 
     public Product[] getProducts() {
-        return products;
+        return product[];
     }
 
 
