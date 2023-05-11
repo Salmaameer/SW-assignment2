@@ -37,8 +37,6 @@ public Customer userlogin() {
                 if (reset.equalsIgnoreCase("Y")) {
                     System.out.print("Enter your email address to reset your password:");
                     String email = scanner.nextLine();
-                    // Send password reset link to email
-                    System.out.print("A password reset link has been sent to your email.");
 
                     System.out.print("Enter your new password: ");
                     String newPassword = scanner.nextLine();
