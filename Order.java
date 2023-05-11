@@ -22,6 +22,7 @@ public class Order {
     private int oCustomerId;
     private String oCustomerName;
     private Address oCustomerAddress;
+    private String oCustomerPhone;
     private OrderStatus orderStatus;
     private OrderDetails orderDetails;
     private Payment payment;
@@ -60,6 +61,7 @@ public class Order {
         oCustomerId = customer.getId();
         oCustomerName = customer.getName();
         oCustomerAddress = customer.getAddress();
+        oCustomerPhone = oCustomer.getPhoneNo();
 
         DateTimeFormatter dateFormt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime no = LocalDateTime.now();  
@@ -71,19 +73,28 @@ public class Order {
 
     public void pay(){
         Payment pay ;
-        if(payment.getPaymentMethod() ==  PaymentMethod.CASH){
-            
-        }
+        
         
 
     }
 
 
-    public void orderSubTotal(){
+    // public void orderSubTotal(){
 
-        // Cart cart = customer.getcCart();
-        // if(paymen)
-        // orderDetails.setOrderSubTotal( cart.getSubTotal());
+    //     Cart cart = oCustomer.getcCart();
+       
+        
+    //     if(payment.getPaymentMethod() ==  PaymentMethod.CASH){
+    //         // will add 20 pound;
+    //         orderDetails.setOrderSubTotal( (cart.getSubTotal() + 20));
+    //     }else{
+    //         orderDetails.setOrderSubTotal( cart.getSubTotal());
+    //     }
+
+    // }
+
+    public void sendOTP(){
+        // take the phone number and send otp to it
 
     }
 
@@ -152,6 +163,70 @@ public class Order {
         }
 
 
+    }
+
+    public static void setOrderID(int orderID) {
+        Order.orderID = orderID;
+    }
+
+    public void setDateCreated(String dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public Customer getoCustomer() {
+        return oCustomer;
+    }
+
+    public void setoCustomer(Customer oCustomer) {
+        this.oCustomer = oCustomer;
+    }
+
+    public int getoCustomerId() {
+        return oCustomerId;
+    }
+
+    public void setoCustomerId(int oCustomerId) {
+        this.oCustomerId = oCustomerId;
+    }
+
+    public String getoCustomerName() {
+        return oCustomerName;
+    }
+
+    public void setoCustomerName(String oCustomerName) {
+        this.oCustomerName = oCustomerName;
+    }
+
+    public Address getoCustomerAddress() {
+        return oCustomerAddress;
+    }
+
+    public void setoCustomerAddress(Address oCustomerAddress) {
+        this.oCustomerAddress = oCustomerAddress;
+    }
+
+    public String getoCustomerPhone() {
+        return oCustomerPhone;
+    }
+
+    public void setoCustomerPhone(String oCustomerPhone) {
+        this.oCustomerPhone = oCustomerPhone;
+    }
+
+    public OrderDetails getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(OrderDetails orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
     

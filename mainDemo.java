@@ -1,5 +1,14 @@
+import java.util.random.RandomGenerator;
+
 public class mainDemo {
 
+    public int createOtp(){
+        int otp = new Random().nextInt(9) + new Random().nextInt(9) + 
+        new Random().nextInt(9) + new Random().nextInt(9) + 
+        new Random().nextInt(9) + new Random().nextInt(9);
+
+        return otp;
+    }
     public  static void  main(String[] args){
         
         Scanner scanner = new Scanner(System.in);
@@ -20,20 +29,26 @@ public class mainDemo {
 
         System.out.println(o.getDateCreated());
 
-        Customerr c  = new Customer();
-        // c.getCustomerId;
-        // c.showAddress();
+        Customer c  = new Customer();
+        c.setPhoneNo("00201104361948");
+
+
+
+        // // c.getCustomerId;
+        // // c.showAddress();
     
 
-        System.out.println(o.getOrderID());
+        // System.out.println(o.getOrderID());
 
-        Order o2 = new Order(c);
-        System.out.println(o2.getOrderID());
-        System.out.println(o2.getCustomerId());
+        // Order o2 = new Order(c);
+        // System.out.println(o2.getOrderID());
+        // System.out.println(o2.getCustomerId());
+
 
         
 // Payment pay = new Payment(o,"CASH")
 //         System.out.println(pat.getPaymentMethod());
+
         
 
         

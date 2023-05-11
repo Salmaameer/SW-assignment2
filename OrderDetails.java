@@ -1,9 +1,11 @@
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderDetails {
     private int orderID;
     private Order order;
-    Product[] products; 
+    private List<Product> products; 
     private double orderSubTotal ;
 
 
@@ -13,7 +15,25 @@ public class OrderDetails {
     public OrderDetails(Order order) {
 
         this.orderID = order.getOrderID();
-        // take the 
+        Customer customer = order.getoCustomer();
+        Cart cart = customer.getcCart();
+        orderSubTotal = cart.getSubTotal();
+        // fill in the products
+       products = cart.getItems();
+
+       
+    }
+
+    public void showOrderDetails(){
+        System.out.println("Order details :");
+        System.out.println("Products ");
+        for( Product p : products){
+            System.out.println(p.getName());
+            System.out.println(p.getDescription());
+            System.out.print("Quantity : " + p.getProductQuantity() + " " );
+            System.out.println("Price" + p.getPrice() );
+        }
+
 
     }
 
