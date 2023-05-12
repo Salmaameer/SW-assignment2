@@ -4,6 +4,8 @@ import java.util.Date;
 
 
 
+
+
 enum OrderStatus{
     waitPAYMENT,
     PAID,
@@ -17,7 +19,7 @@ public class Order {
 
     private static int orderID;
     private String dateCreated;
-    // private Date dateShipped; 
+    private String dateShipped; 
     private Customer oCustomer;
     private int oCustomerId;
     private String oCustomerName;
@@ -59,13 +61,17 @@ public class Order {
         dateCreated = ((String)dateFormat.format(now));
 
         oCustomerId = customer.getId();
-        oCustomerName = customer.getName();
+        oCustomerName = customer.getUserName();
         oCustomerAddress = customer.getAddress();
         oCustomerPhone = oCustomer.getPhoneNo();
 
         DateTimeFormatter dateFormt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime no = LocalDateTime.now();  
         dateCreated = ((String)dateFormt.format(no));
+
+        orderDetails = new OrderDetails(this);
+
+
         
 
     }
@@ -92,6 +98,18 @@ public class Order {
     //     }
 
     // }
+    public void cancelOrder(){
+        if(orderStatus == OrderStatus.SHIPPED ){
+            System.out.println("Order can't be cancelled, It is on the way to you!");
+        }
+        else{
+            orderStatus = OrderStatus.CANCELLED;
+            System.out.println("Order has been canclled :(");
+
+        }
+
+
+    }
 
     public void sendOTP(){
         // take the phone number and send otp to it
@@ -118,11 +136,6 @@ public class Order {
     }
 
     
-
-
-
-   
-
     public static int getOrderID() {
         return orderID;
     }
@@ -131,9 +144,9 @@ public class Order {
         return dateCreated;
     }
 
-    // public Date getDateShipped() {
-    //     return dateShipped;
-    // }
+    public String getDateShipped() {
+        return dateShipped;
+    }
 
     public int getCustomerId() {
         return oCustomerId;
@@ -151,19 +164,6 @@ public class Order {
         return orderStatus;
     }
 
-
-    public void cancelOrder(){
-        if(orderStatus == OrderStatus.SHIPPED ){
-            System.out.println("Order can't be cancelled, It is on the way to you!");
-        }
-        else{
-            orderStatus = OrderStatus.CANCELLED;
-            System.out.println("Order has been canclled :(");
-
-        }
-
-
-    }
 
     public static void setOrderID(int orderID) {
         Order.orderID = orderID;

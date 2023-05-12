@@ -58,12 +58,12 @@ public class OrderDetails {
     }
 
 
-    public Product[] getProducts() {
-        return product[];
+    public List<Product> getProducts() {
+        return products;
     }
 
 
-    public void setProducts(Product[] products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 

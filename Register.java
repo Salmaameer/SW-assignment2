@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 /**
  *
  * @author Original
@@ -21,6 +22,8 @@ public class Register {
     private String name;
     private String ID;
     private String phonenumber;
+    private String email;
+
     //Customer customer =new Customer();
     public void register() {
     Scanner scanner = new Scanner(System.in);
@@ -29,9 +32,8 @@ public class Register {
 
     Customer customer = new Customer();
 
-    // Prompt user for username
-    while (true) {
-       System.out.print("Enter your username (must be at least 4 characters long): ");
+    while(true){
+        System.out.print("Enter your username (must be at least 4 characters long): ");
         String username = scanner.nextLine();
 
         if (username.length() < 4) {
@@ -39,9 +41,38 @@ public class Register {
         }  else if (usernameExists(username)) {
             System.out.println("Username already exists. Please try again with a different username.");
         } else {
-            customer.setEmail(username);
+            customer.setUserName(username);
             break;
         }
+    }
+
+    // Prompt user for username
+    while (true) {
+       System.out.print("Enter Valid Email: ");
+        String userEmail = scanner.nextLine();
+
+        String regexPattern = "^(.+)@(\\S+)$";
+
+    
+
+      
+        if (!userEmail.matches(regexPattern)) {
+            System.out.println("Email is invalid");
+        }  else if (userEmailused(userEmail)) {
+            System.out.println("This email is already used, try another one");
+        } else {
+            customer.setEmail(userEmail);
+            OTP.sendOTP(userEmail);
+
+            System.out.println("enter otp;");
+    
+            String otp = scanner.nextLine();
+    
+            break;
+        }
+
+    
+      
     }
 
     while (true) {
@@ -68,7 +99,7 @@ public class Register {
         if (name.length() < 3) {
             System.out.println("Name must be at least 3 characters long. Please try again.");
         } else {
-            customer.setCustomerName(name);
+            customer.setUserName(name);
             break;
         }
     }
@@ -88,7 +119,7 @@ public class Register {
     // Save user credentials to file
     try {
         FileWriter writer = new FileWriter("login.txt", true);
-        writer.write(customer.getEmail()+ "," + customer.getPassword() + "," +customer.getCustomerName()+ "," + customer.getPhoneNo() + "\n");
+        writer.write(customer.getEmail()+ "," + customer.getPassword() + "," +customer.getUserName()+ "," + customer.getPhoneNo() + "\n");
         writer.close();
         System.out.println("User registered successfully.");
     } catch (IOException e) {
@@ -96,6 +127,32 @@ public class Register {
         e.printStackTrace();
     }
 }
+    private boolean userEmailused(String userEmail) {
+        try {
+            File file = new File("login.txt");
+            if (!file.exists()) {
+                return false;
+            }
+
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 4 && parts[0].equals(userEmail)) {
+                    reader.close();
+                    return true;
+                }
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the login file.");
+            e.printStackTrace();
+        }
+
+        return false;
+    }
     private boolean usernameExists(String username) {
         try {
             File file = new File("login.txt");
@@ -123,6 +180,8 @@ public class Register {
         return false;
     }
 }
+
+
 
    
 

@@ -1,5 +1,5 @@
  public class Customer {
-     private String name;
+     private String userName;
     private int id;
     private String email;
     private String password;
@@ -19,21 +19,39 @@
     }
 
 
-    public String getName() {
-        return name;
+    public Customer(String email, String password) {
+       
+        this.email = email;
+        this.password = password;
+      
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void showAddress(){
+        System.out.println(address.getGovernrate() + " ," + address.getDisrict() + " ," + address.getStreet() + " ,"+ address.getBuildingNo() + " ," + address.getApartmentNo() );
+
+    }
+   
+    public void checkout(){
+
+    }
+    public void changeAddress(){
+
+    }
+
+
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String name) {
+        this.userName = name;
     }
 
 
     public int getId() {
         return id;
     }
-
-
-
 
 
     public void setId(int id) {
@@ -133,15 +151,7 @@
         this.cCart = cCart;
     }
 
-   
-public void checkout(){
-
-}
-public void changeAddress(){
-
-}
-
-
+    
 
    
 }
