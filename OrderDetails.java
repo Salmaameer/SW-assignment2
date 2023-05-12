@@ -4,7 +4,6 @@ import java.util.List;
 
 public class OrderDetails {
     private int orderID;
-    private Order order;
     private List<Product> products; 
     private double orderSubTotal ;
 
@@ -25,6 +24,12 @@ public class OrderDetails {
     }
 
     public void showOrderDetails(){
+        if(products.size() == 0){
+            System.out.println("There is no products in the cart!");
+
+
+        }else{
+        System.out.println("your Order ID is : " + getOrderID());
         System.out.println("Order details :");
         System.out.println("Products ");
         for( Product p : products){
@@ -33,6 +38,7 @@ public class OrderDetails {
             System.out.print("Quantity : " + p.getProductQuantity() + " " );
             System.out.println("Price" + p.getPrice() );
         }
+    }
 
 
     }

@@ -24,13 +24,14 @@ public class Register {
     private String phonenumber;
     private String email;
 
-    //Customer customer =new Customer();
-    public void register() {
+   
+    public static void register(Customer customer) {
+
     Scanner scanner = new Scanner(System.in);
 
     System.out.println("Welcome to User Registration");
 
-    Customer customer = new Customer();
+    // Customer customer = new Customer();
 
     while(true){
         System.out.print("Enter your username (must be at least 4 characters long): ");
@@ -61,17 +62,26 @@ public class Register {
         }  else if (userEmailused(userEmail)) {
             System.out.println("This email is already used, try another one");
         } else {
-            customer.setEmail(userEmail);
-            OTP.sendOTP(userEmail);
+            
+            // sending otp to validate the email
+            OTP otp = new OTP() ;
+            otp.sendOTP(userEmail);
+            String sendedOTP = otp.getOTP();
 
-            System.out.println("enter otp:");
-    
-            String otp = scanner.nextLine();
+            System.out.println("Enter otp:");
+            String enterdOtp = scanner.nextLine();
+
+            while(sendedOTP != enterdOtp ){
+                System.out.print("Wrong Otp! Enter the otp again:");
+                enterdOtp = scanner.nextLine();
+
+            }
+            customer.setEmail(userEmail);
+
     
             break;
         }
 
-    
       
     }
 
@@ -127,7 +137,7 @@ public class Register {
         e.printStackTrace();
     }
 }
-    private boolean userEmailused(String userEmail) {
+    private static boolean userEmailused(String userEmail) {
         try {
             File file = new File("login.txt");
             if (!file.exists()) {
@@ -153,7 +163,10 @@ public class Register {
 
         return false;
     }
-    private boolean usernameExists(String username) {
+
+
+
+    private static boolean usernameExists(String username) {
         try {
             File file = new File("login.txt");
             if (!file.exists()) {

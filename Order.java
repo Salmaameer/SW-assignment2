@@ -1,6 +1,8 @@
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Random;
+import java.util.random.*;;
 
 
 
@@ -17,7 +19,7 @@ enum OrderStatus{
 
 public class Order {
 
-    private static int orderID;
+    private  int orderID;
     private String dateCreated;
     private String dateShipped; 
     private Customer oCustomer;
@@ -36,27 +38,11 @@ public class Order {
     
     
 
-
-    
-
-    Order(){
-        ++orderID;
-        orderStatus = OrderStatus.waitPAYMENT;
-        
-
-        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDateTime now = LocalDateTime.now();  
-        dateCreated = ((String)dateFormat.format(now));
-        
-
-
-        
-    }
-
     Order(Customer customer){
 
-       ++orderID;
-       
+       orderID = new Random().nextInt(9) + new Random().nextInt(9) + 
+       new Random().nextInt(9) + new Random().nextInt(9) + new Random().nextInt(9);
+
         orderStatus = OrderStatus.waitPAYMENT;
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime now = LocalDateTime.now();  
@@ -113,10 +99,6 @@ public class Order {
 
     }
 
-    public void sendOTP(){
-        // take the phone number and send otp to it
-
-    }
 
     public void setOrderStatus(OrderStatus os){
         orderStatus = os;
@@ -138,7 +120,7 @@ public class Order {
     }
 
     
-    public static int getOrderID() {
+    public  int getOrderID() {
         return orderID;
     }
 
@@ -167,8 +149,8 @@ public class Order {
     }
 
 
-    public static void setOrderID(int orderID) {
-        Order.orderID = orderID;
+    public  void setOrderID(int orderID) {
+        this.orderID = orderID;
     }
 
     public void setDateCreated(String dateCreated) {

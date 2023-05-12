@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -8,14 +9,15 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-/**
- *
- * @author Original
- */
-public class login {
-       private String username;
+
+
+
+
+public class Login {
+    private String username;
     private String password;
-public Customer userlogin() {
+
+    public Customer userlogin() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to login");
@@ -38,6 +40,20 @@ public Customer userlogin() {
                     System.out.print("Enter your email address to reset your password:");
                     String email = scanner.nextLine();
 
+                    // verfiy the email first
+                    OTP otp = new OTP();
+                    otp.sendOTP(email);
+                    String sendedOTP = otp.getOTP();
+
+                    System.out.println("Enter otp:");
+                    String enterdOtp = scanner.nextLine();
+
+                    while (sendedOTP != enterdOtp) {
+                        System.out.print("Wrong Otp! Enter the otp again:");
+                        enterdOtp = scanner.nextLine();
+
+                    }
+
                     System.out.print("Enter your new password: ");
                     String newPassword = scanner.nextLine();
                     updatePassword(username, newPassword);
@@ -46,58 +62,59 @@ public Customer userlogin() {
             }
         }
     }
-private void updatePassword(String username, String newPassword) {
-    try {
-        File file = new File("login.txt");
-        Scanner scanner = new Scanner(file);
-        StringBuilder fileContents = new StringBuilder();
 
-        // Read the file line by line and update the password for the given username
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            if (line.startsWith(username + ",")) {
+    private void updatePassword(String username, String newPassword) {
+        try {
+            File file = new File("login.txt");
+            Scanner scanner = new Scanner(file);
+            StringBuilder fileContents = new StringBuilder();
+
+            // Read the file line by line and update the password for the given username
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                if (line.startsWith(username + ",")) {
+                    String[] parts = line.split(",");
+                    parts[1] = newPassword;
+                    line = String.join(",", parts);
+                }
+                fileContents.append(line).append("\n");
+            }
+            scanner.close();
+
+            // Write the updated file contents back to the file
+            FileWriter writer = new FileWriter(file);
+            writer.write(fileContents.toString());
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred while updating the password: " + e.getMessage());
+        }
+    }
+
+    private Customer acountExists(String username) {
+        try {
+            File file = new File("login.txt");
+            if (!file.exists()) {
+                return null;
+            }
+
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
+
+            while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                parts[1] = newPassword;
-                line = String.join(",", parts);
+                if (parts.length == 4 && parts[0].equals(username)) {
+                    reader.close();
+                    return new Customer(username, parts[1]); // return customer object with username and password
+                }
             }
-            fileContents.append(line).append("\n");
-        }
-        scanner.close();
 
-        // Write the updated file contents back to the file
-        FileWriter writer = new FileWriter(file);
-        writer.write(fileContents.toString());
-        writer.close();
-    } catch (IOException e) {
-        System.out.println("An error occurred while updating the password: " + e.getMessage());
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the login file.");
+            e.printStackTrace();
+        }
+
+        return null; // user not found
     }
-}
-
-  private Customer acountExists(String username) {
-    try {
-        File file = new File("login.txt");
-        if (!file.exists()) {
-            return null;
-        }
-
-        BufferedReader reader = new BufferedReader(new FileReader(file));
-        String line;
-
-        while ((line = reader.readLine()) != null) {
-            String[] parts = line.split(",");
-            if (parts.length == 4 && parts[0].equals(username)) {
-                reader.close();
-                return new Customer(username, parts[1]); // return customer object with username and password
-            }
-        }
-
-        reader.close();
-    } catch (IOException e) {
-        System.out.println("An error occurred while reading the login file.");
-        e.printStackTrace();
-    }
-
-    return null; // user not found
-}
 
 }

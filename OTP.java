@@ -10,7 +10,7 @@ public class OTP {
     // Generate a random OTP
     static String otp;
  
-    public static void sendOTP(String email) {
+    public  void sendOTP(String email) {
         otp = generateOTP();
         // Send the OTP by email
         String to = email;
@@ -61,7 +61,9 @@ public class OTP {
         return sb.toString();
     }
  
-    public static String getOTP() {
+    public  String getOTP() {
         return otp;
     }
+
+   
 }

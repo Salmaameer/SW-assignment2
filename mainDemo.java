@@ -1,22 +1,42 @@
 import java.util.random.RandomGenerator;
+import java.util.Random;
 import java.util.Scanner;
 
 public class mainDemo {
 
     // public int createOtp(){
-    //     int otp = new Random().nextInt(9) + new Random().nextInt(9) + 
-    //     new Random().nextInt(9) + new Random().nextInt(9) + 
-    //     new Random().nextInt(9) + new Random().nextInt(9);
+        // int otp = new Random().nextInt(9) + new Random().nextInt(9) + 
+        // new Random().nextInt(9) + new Random().nextInt(9) + 
+        // new Random().nextInt(9) + new Random().nextInt(9);
 
     //     return otp;
     // }
 
     public  static void  main(String[] args){
+        Scanner scanner = new Scanner(System.in);
 
-        Register r = new Register();
+       Customer customer = new Customer();
 
-        r.register();
 
+       System.out.println("Welcome to TOFFEE store, where you can find you Adrenaline ;)");
+       System.out.println("1-registr \n 2-login \n 3- Start Shopping \n 4- checkout");
+       int choice = scanner.nextInt();
+
+       login
+
+       switch (choice){
+
+        case 1:
+        Register.register(customer);
+
+        case 2:
+
+
+
+       }
+
+
+       
         
     //     System.out.println("Choose the payment method : ");
     //     System.out.println("1- cash \n" + "2- Loyalty points" );
