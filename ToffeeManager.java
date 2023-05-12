@@ -14,7 +14,7 @@ public class ToffeeManager {
 
     }
 
-    public static void palceCustomerOrder(Customer customer) {
+    public static void placeCustomerOrder(Customer customer) {
 
         System.out.println("Enter your address to deliver to ");
 
