@@ -5,7 +5,7 @@ public class ToffeeManager {
     // public static void welcoming(){
     // System.out.println("Welcome to TOFFEE store, where you can find your
     // Adrenaline ;)");
-    // System.out.println("1-regestr \n 2-login \n 3- Start Shopping \n 4-
+    // System.out.println("1-regestr\n2-login\n3- Start Shopping\n 4-
     // checkout");
 
     // }
@@ -67,9 +67,9 @@ public class ToffeeManager {
 
         customer.setOrder(cOrder);
 
-        OrderDetails orderD = new OrderDetails(cOrder);
+        
 
-        orderD.showOrderDetails();
+        cOrder.showOrderDetails();
         System.out
                 .println("After this step you cant cancel the order, what do you want?  1-cancel 2- continue shipping");
         System.out.print("Enter your choice here:");

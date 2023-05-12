@@ -30,6 +30,8 @@ public class Order {
     private OrderStatus orderStatus;
     private OrderDetails orderDetails;
     private Payment payment;
+    private double subTotal;
+
     
 
     
@@ -51,13 +53,14 @@ public class Order {
         oCustomerId = customer.getId();
         oCustomerName = customer.getUserName();
         oCustomerAddress = customer.getAddress();
-        oCustomerPhone = oCustomer.getPhoneNo();
+        // oCustomerPhone = oCustomer.getPhoneNo();
 
         DateTimeFormatter dateFormt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime no = LocalDateTime.now();  
         dateCreated = ((String)dateFormt.format(no));
 
         orderDetails = new OrderDetails(this);
+
 
 
         
@@ -70,22 +73,47 @@ public class Order {
 
     }
 
+    public void showOrderDetails(){
+        OrderDetails od = new OrderDetails(this);
+
+        if(od.getProducts().size() == 0){
+            System.out.println("There is no products in the cart!");
+
+
+        }else{
+        System.out.println("your Order ID is : " + getOrderID());
+        System.out.println("Order details :");
+        System.out.println("Products ");
+        for( Product p : od.getProducts()){
+            System.out.println(p.getName());
+            System.out.println(p.getDescription());
+            System.out.print("Quantity : " + p.getProductQuantity() + " " );
+            System.out.println("Price" + p.getPrice() );
+        }
+
+        System.out.println("order subTotal : " + getSubTotal());
+    }
+
+
+    }
    
 
 
-    // public void orderSubTotal(){
+    public double orderSubTotal(){
 
-    //     Cart cart = oCustomer.getcCart();
-       
+        Cart cart = oCustomer.getcCart();
+
         
-    //     if(payment.getPaymentMethod() ==  PaymentMethod.CASH){
-    //         // will add 20 pound;
-    //         orderDetails.setOrderSubTotal( (cart.getSubTotal() + 20));
-    //     }else{
-    //         orderDetails.setOrderSubTotal( cart.getSubTotal());
-    //     }
+        if(payment.getPaymentMethod() ==  PaymentMethod.CASH){
+            // will add 20 pound;
+            setSubTotal( (cart.getSubTotal() + 20));
+        }else{
+            setSubTotal( cart.getSubTotal());
+        }
+        return subTotal;
 
-    // }
+    }
+
     public void cancelOrder(){
         if(orderStatus == OrderStatus.SHIPPED ){
             System.out.println("Order can't be cancelled, It is on the way to you!");
@@ -211,6 +239,18 @@ public class Order {
 
     public void setPayment(Payment payment) {
         this.payment = payment;
+    }
+
+    public void setDateShipped(String dateShipped) {
+        this.dateShipped = dateShipped;
+    }
+
+    public double getSubTotal() {
+        return subTotal;
+    }
+
+    public void setSubTotal(double subTotal) {
+        this.subTotal = subTotal;
     }
 
     

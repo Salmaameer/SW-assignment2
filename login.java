@@ -45,14 +45,14 @@ public class Login {
                     otp.sendOTP(email);
                     String sendedOTP = otp.getOTP();
 
-                    System.out.println("Enter otp:");
+                    System.out.print("Enter otp:");
                     String enterdOtp = scanner.nextLine();
 
-                    while (sendedOTP != enterdOtp) {
-                        System.out.print("Wrong Otp! Enter the otp again:");
-                        enterdOtp = scanner.nextLine();
+                    // while (sendedOTP != enterdOtp) {
+                    //     System.out.print("Wrong Otp! Enter the otp again:");
+                    //     enterdOtp = scanner.nextLine();
 
-                    }
+                    // }
 
                     System.out.print("Enter your new password: ");
                     String newPassword = scanner.nextLine();

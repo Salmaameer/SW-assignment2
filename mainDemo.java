@@ -18,22 +18,32 @@ public class mainDemo {
        Customer customer = new Customer();
 
 
+
+
+
        System.out.println("Welcome to TOFFEE store, where you can find you Adrenaline ;)");
-       System.out.println("1-registr \n 2-login \n 3- Start Shopping \n 4- checkout");
+       System.out.println("1-registr \n2-login \n3- Start Shopping \n ");
+       System.out.print("Enter your shoice:");
        int choice = scanner.nextInt();
 
-       login
+       
 
        switch (choice){
 
         case 1:
         Register.register(customer);
+        break;
 
         case 2:
-
-
+        Login login = new Login();
+        login.userlogin();
+        break;
 
        }
+
+       Order order = new Order(customer);
+       order.getOrderDetails();
+
 
 
        

@@ -68,14 +68,14 @@ public class Register {
             otp.sendOTP(userEmail);
             String sendedOTP = otp.getOTP();
 
-            System.out.println("Enter otp:");
+            System.out.print("Enter otp:");
             String enterdOtp = scanner.nextLine();
 
-            while(sendedOTP != enterdOtp ){
-                System.out.print("Wrong Otp! Enter the otp again:");
-                enterdOtp = scanner.nextLine();
+            // while(sendedOTP != enterdOtp ){
+            //     System.out.print("Wrong Otp! Enter the otp again:");
+            //     enterdOtp = scanner.nextLine();
 
-            }
+            // }
             customer.setEmail(userEmail);
 
     
