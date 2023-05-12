@@ -1,3 +1,5 @@
+import java.util.Scanner;;
+
 public class Address {
 
     private String governrate;
@@ -7,13 +9,36 @@ public class Address {
     private String apartmentNo;
 
 
-    Address(String governrate, String district , String street , String buildingNo , String apartmentNo ){
-        this.governrate = governrate;
-        this.disrict = district;
-        this.apartmentNo = apartmentNo;
-        this.buildingNo = buildingNo;
-        this.street = street;
+    
+    public void setAddress(){
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Governrate:");
+        governrate = scanner.nextLine();
+
+        System.out.print("Enter Disrict:");
+        disrict = scanner.nextLine();
+
+        System.out.print("Enter Street:");
+        street = scanner.nextLine();
+
+        System.out.print("Enter building number:");
+        buildingNo = scanner.nextLine();
+
+        System.out.print("Enter apatment number:");
+        apartmentNo = scanner.nextLine();
+
+
     }
+
+    public void showAddress(){
+        System.out.println(getGovernrate() + " ," + getDisrict() + " ," + getStreet() + " ,"+ getBuildingNo() + " ," + getApartmentNo() );
+
+    }
+
+
+
+    //setters and getters
     public void setGovernrate(String gover){
         governrate  = gover;
     }
@@ -32,12 +57,6 @@ public class Address {
         this.apartmentNo = apart;
  
      }
-
-
-    
-    
-   
-    
 
     public String getGovernrate() {
         return governrate;

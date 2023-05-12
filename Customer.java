@@ -7,6 +7,8 @@
     private double loyaltyPoints;
     private Address address;
     private Cart cCart;
+    private Order order;
+    
 
 
     
@@ -26,16 +28,15 @@
       
     }
 
-    public void showAddress(){
-        System.out.println(address.getGovernrate() + " ," + address.getDisrict() + " ," + address.getStreet() + " ,"+ address.getBuildingNo() + " ," + address.getApartmentNo() );
-
-    }
+   
    
     public void checkout(){
 
     }
     public void changeAddress(){
 
+    
+        System.out.println("Enter ");
     }
 
 
@@ -149,6 +150,16 @@
 
     public void setcCart(Cart cCart) {
         this.cCart = cCart;
+    }
+
+
+    public Order getOrder() {
+        return order;
+    }
+
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     

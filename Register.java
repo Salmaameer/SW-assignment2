@@ -64,7 +64,7 @@ public class Register {
             customer.setEmail(userEmail);
             OTP.sendOTP(userEmail);
 
-            System.out.println("enter otp;");
+            System.out.println("enter otp:");
     
             String otp = scanner.nextLine();
     

@@ -30,6 +30,8 @@ public class Order {
     private Payment payment;
     
 
+    
+
 
     
     
@@ -76,13 +78,13 @@ public class Order {
 
     }
 
+    public void putPaymentMethod(String payM){
 
-    public void pay(){
-        Payment pay ;
-        
-        
+        payment.setPaymentMethod(payM);
 
     }
+
+   
 
 
     // public void orderSubTotal(){

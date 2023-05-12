@@ -14,10 +14,10 @@ public class OTP {
         otp = generateOTP();
         // Send the OTP by email
         String to = email;
-        String from = "toffeestoreOfficial@gmail.com";
+        String from = "salatoffee9@gmail.com";
         String host = "smtp.gmail.com";
-        String username = "toffeestoreOfficial@gmail.com";
-        String password = "wyktoiryaoipehqm";
+        String username = "salatoffee9@gmail.com";
+        String password = "axdlfzsmqvbinvkd";
  
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
