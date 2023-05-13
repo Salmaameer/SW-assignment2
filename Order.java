@@ -37,7 +37,7 @@ public class Order {
     private OrderStatus orderStatus;
     private OrderDetails orderDetails ;
     private Payment payment = new Payment();
-    private List<CartItem> products;
+    
 
     
 
@@ -287,14 +287,7 @@ public class Order {
         this.dateShipped = dateShipped;
     }
 
-    public List<CartItem> getProducts() {
-        return products;
-    }
-
-
-    public void setProducts(List<CartItem> products) {
-        this.products = products;
-    }
+   
 
     
 }
