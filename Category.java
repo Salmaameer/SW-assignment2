@@ -1,3 +1,4 @@
+package com.mycompany.toffee;
 
 public class Category {
     private String name;
@@ -10,6 +11,9 @@ public class Category {
         this.products = products;
         this.discountP = discountP;
     }
+
+
+
     public void setName(String name) {
         this.name = name;
     }
@@ -40,6 +44,7 @@ public class Category {
         System.out.println("Num Of Products: " + pQuantity);
         System.out.println("Discount Percentage: " + discountP);
     }
+
 
 
 }

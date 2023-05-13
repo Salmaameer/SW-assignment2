@@ -1,3 +1,5 @@
+package com.mycompany.toffee;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,9 +30,11 @@ public class Cart {
     public void setItemPrice(double itemPrice) {
         this.itemPrice = itemPrice;
     }
+
     public void setSubTotal(double subTotal) {
         this.subTotal = subTotal;
     }
+
     public void setItems(List<Product> items) {
         this.items = items;
     }
@@ -46,9 +50,11 @@ public class Cart {
     public double getItemPrice() {
         return itemPrice;
     }
+
     public double getSubTotal() {
         return subTotal;
     }
+
     public List<Product> getItems() {
         return items;
     }
@@ -84,6 +90,5 @@ public class Cart {
         System.out.println("Subtotal: " + calculateSubTotal());
     }
 
-
-
 }
+

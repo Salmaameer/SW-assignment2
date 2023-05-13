@@ -1,3 +1,4 @@
+package com.mycompany.toffee;
 
 public class Product {
     public String name;
@@ -128,5 +129,6 @@ public class Product {
             default -> throw new IllegalArgumentException("Incorrect product status");
         }
     }
+
 
 }
