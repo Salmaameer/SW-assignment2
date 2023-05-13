@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 
 /**
@@ -14,9 +15,9 @@ public class Customer {
     private String password;
     private String phoneNo;
     private double loyaltyPoints;
-    private Address address;
-    private Cart cCart;
-    private Order order;
+    private Address address = new Address();
+    private Cart cCart = new Cart();
+    private Order order = new Order();
 
     /**
      * This is the default constructor for the Customer class. It generates a random
@@ -58,9 +59,35 @@ public class Customer {
      * to change his address to another one
      */
    
+     public void setAddress(){
+
+        Scanner scanner = new Scanner(System.in);
+        String in;
+        System.out.print("Enter Governrate:");
+        in = scanner.nextLine();
+        address.setGovernrate(in);
+
+        System.out.print("Enter Disrict:");
+        in = scanner.nextLine();
+        address.setDistrict(in);
+
+        System.out.print("Enter Street:");
+        in = scanner.nextLine();
+        address.setStreet(in);
+
+        System.out.print("Enter building number:");
+        in = scanner.nextLine();
+        address.setBuildingNo(in);
+
+        System.out.print("Enter apatment number:");
+        in = scanner.nextLine();
+        address.setApartmentNo(in);
+
+
+    }
     public void changeAddress() {
 
-       address.setAddress();
+       setAddress();
     }
     /**
      * 

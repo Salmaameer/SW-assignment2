@@ -15,26 +15,7 @@ public class Address {
 
 
     
-    public void setAddress(){
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter Governrate:");
-        governrate = scanner.nextLine();
-
-        System.out.print("Enter Disrict:");
-        disrict = scanner.nextLine();
-
-        System.out.print("Enter Street:");
-        street = scanner.nextLine();
-
-        System.out.print("Enter building number:");
-        buildingNo = scanner.nextLine();
-
-        System.out.print("Enter apatment number:");
-        apartmentNo = scanner.nextLine();
-
-
-    }
+    
     
     /**
      * This method prints the address information to the console in a formatted

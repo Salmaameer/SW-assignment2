@@ -1,6 +1,7 @@
 // package com.mycompany.toffee;
 
 public class Product {
+
     public String name;
     public int id;
     public String brand;
@@ -10,7 +11,7 @@ public class Product {
     public String imageFile;
     public ProductStatus status;
     public int availableQuantity;
-    public double discount;
+    public double discountPercentage;
     
     public enum ProductStatus {
         out_of_stock,
@@ -21,19 +22,30 @@ public class Product {
         Loose,
         Unit
     }
-    public Product(String name, int id, String brand, String description, ProductType type,
-                   double price, String imageFile, ProductStatus status, int availableQuantity, double discount) {
+
+    public Product(String name, int id, String brand, String description,
+                   double price , int availableQuantity) {
         this.name = name;
         this.id = id;
         this.brand = brand;
         this.description = description;
-        this.type = type;
+        this.type = ProductType.Unit;
         this.price = price;
-        this.imageFile = imageFile;
-        this.status = status;
+        this.status = ProductStatus.on_sale;
         this.availableQuantity = availableQuantity;
-        this.discount = discount;
+        
     }
+
+    public void displayProductDetails() {
+        System.out.println("Product Name: " + name);
+        System.out.println("Brand: " + brand);
+        System.out.println("Description: " + description);
+        System.out.println("Product Type: " + type);
+        System.out.println("Price: " + price);
+        System.out.println("Product Status: " + status);
+    }
+   
+
     void setName(String name) {
         this.name = name;
     }
@@ -62,7 +74,7 @@ public class Product {
         this.availableQuantity = availableQuantity;
     }
     void setDiscount(double discount) {
-        this.discount = discount;
+        this.discountPercentage = discount;
     }
     public String getName() {
         return name;
@@ -101,22 +113,9 @@ public class Product {
     }
 
     public double getDiscount() {
-        return discount;
+        return discountPercentage;
     }
-    public void displayProduct() {
-        System.out.println("Product Name: " + name);
-        System.out.println("Product ID: " + id);
-        System.out.println("Brand: " + brand);
-        System.out.println("Description: " + description);
-        System.out.println("Product Type: " + type);
-        System.out.println("Price: " + price);
-        System.out.println("Product Status: " + status);
-    }
-    public void displayProductDetails() {
-        displayProduct();
-        System.out.println("Available Quantity: " + availableQuantity);
-        System.out.println("Discount: " + discount);
-    }
+    
 
     public int getProductQuantity() {
         return availableQuantity;

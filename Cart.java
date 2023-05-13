@@ -10,7 +10,8 @@ public class Cart {
     private int itemsQuantity;
     private double itemPrice;
     private double subTotal;
-    private List<CartItem> items;
+    private List<CartItem> items = new ArrayList<>();
+    
 
     Cart(){
 
@@ -26,10 +27,13 @@ public class Cart {
 
     public void viewCartDetails() {
         System.out.println("Cart Details: ");
+        if( items.size() > 0){
         for (CartItem item : items) {
             System.out.println("Name: " + item.getName() +  "\n Quantity: " + item.getQuantity() + "\n total price: " + item.getItemTotal());
         }
-       
+    }else{
+        System.out.println("Your Cart is empty");
+    }
     }
     public void addToCartItem(CartItem item) {
             items.add(item);

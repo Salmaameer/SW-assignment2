@@ -4,57 +4,67 @@ import java.util.Scanner;
 
 public class mainDemo {
 
-    // public int createOtp(){
-        // int otp = new Random().nextInt(9) + new Random().nextInt(9) + 
-        // new Random().nextInt(9) + new Random().nextInt(9) + 
-        // new Random().nextInt(9) + new Random().nextInt(9);
-
-    //     return otp;
-    // }
-
+   
     public  static void  main(String[] args){
         Scanner scanner = new Scanner(System.in);
 
        Customer customer = new Customer();
 
 
+       ToffeeManager.startShopping(customer);
 
+
+
+
+          Login login = new Login();
+        customer = login.userlogin();
+
+        
+
+        System.out.println(customer.getId());
 
 
        
 
-       System.out.println("Welcome to TOFFEE store, where you can find you Adrenaline ;)");
-       System.out.println("1-registr \n2-login \n3- Start Shopping \n4- checkout ");
-       System.out.print("Enter your shoice:");
-       int choice = scanner.nextInt();
+    //    System.out.println("Welcome to TOFFEE store, where you can find you Adrenaline ;)");
+    //    System.out.println("1-registr \n2-login \n3- Start Shopping \n4- checkout ");
+    //    System.out.print("Enter your shoice:");
+    //    int choice = scanner.nextInt();
 
        
-    while(choice != 0 ){
-        System.out.println("1-registr \n2-login \n3- Start Shopping \n4- checkout ");
-       System.out.print("Enter your shoice:");
-       choice = scanner.nextInt();
-       switch (choice){
+    // while(choice != 0 ){
+    //     System.out.println("1-registr \n2-login \n3- Start Shopping \n4- checkout ");
+    //    System.out.print("Enter your shoice:");
+    //    choice = scanner.nextInt();
+    //    switch (choice){
 
-        case 1:
-        Register.register(customer);
-        break;
+    //     case 1:
+    //     Register.register(customer);
+    //     break;
 
-        case 2:
-        Login login = new Login();
-        login.userlogin();
-        break;
+    //     case 2:
+    //     Login login = new Login();
+    //     customer = login.userlogin();
+    //     break;
 
-        case 3:
-        ToffeeManager.startShopping(customer);
-
-        default :
-        System.out.println("Enter valis option :( ");
-        break;
+    //     // case 3:
+    //     // ToffeeManager.startShopping(customer);
 
 
-       }
+    //     // case 4:
+    //     // ToffeeManager.placeCustomerOrder(customer);
+    //     // break;
 
-    }
+    //     default :
+    //     System.out.println("Enter valid option :( ");
+    //     break;
+
+
+    //    }
+
+    //    c
+
+    // }
 
        
 

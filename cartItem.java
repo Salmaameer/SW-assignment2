@@ -10,9 +10,13 @@ public class CartItem {
 
      public CartItem(int quantity ,Product p) {
         this.name = p.getName();
+        this.id = id;
         this.unitPrice = p.getPrice();
         this.quantity = quantity;
+
+        calculateItemTotal(p);
     }
+
     CartItem(String name, int id, int quantity, double unitPrice) {
         this.name = name;
         this.id = id;
@@ -22,11 +26,12 @@ public class CartItem {
     }
 
 
-    public double calculateItemTotal(Product p) {
+    private double calculateItemTotal(Product p) {
                
                 double discount = p.getDiscount();
-                double price = p.getPrice();
-                itemTotal += ((price * discount) * quantity );
+                double disPrice = unitPrice * (1 - (discount/100));
+
+                itemTotal += (disPrice * quantity );
             
             return itemTotal;
 

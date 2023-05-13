@@ -1,15 +1,33 @@
 // package com.mycompany.toffee;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class Category {
     private String name;
     private int pQuantity;
-    private Product[] products;
+    private List<Product> products = new ArrayList<>() ;
     private double discountP;
-    public Category(String name, int pQuantity, Product[] products, double discountP) {
+
+
+    public Category(String name, int pQuantity, List<Product> products, double discountP) {
         this.name = name;
         this.pQuantity = pQuantity;
         this.products = products;
         this.discountP = discountP;
+    }
+
+
+
+    public void showItems() {
+        for (Product p : products) {
+
+            System.out.println("Product name : " + p.getName() + "\nPrice: " + p.getPrice());
+            System.out.println("\n");
+
+        }
     }
 
 
@@ -20,7 +38,7 @@ public class Category {
     public void setPQuantity(int pQuantity) {
         this.pQuantity = pQuantity;
     }
-    public void setProducts(Product[] products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
     public void setDiscountP(double discountP) {
@@ -32,18 +50,14 @@ public class Category {
     public int getPQuantity() {
         return pQuantity;
     }
-    public Product[] getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
     public double getDiscountP() {
         return discountP;
     }
 
-        public void showItem() {
-        System.out.println("Category Name: " + name);
-        System.out.println("Num Of Products: " + pQuantity);
-        System.out.println("Discount Percentage: " + discountP);
-    }
+       
 
 
 

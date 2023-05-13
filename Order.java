@@ -26,7 +26,7 @@ public class Order {
     private  int orderID;
     private String dateCreated;
     private String dateShipped; 
-    private Customer oCustomer;
+    private Customer oCustomer ;
     private int oCustomerId;
     private String oCustomerName;
     private Address oCustomerAddress;
@@ -44,7 +44,11 @@ public class Order {
     
     
 
-     /**
+     public Order() {
+    }
+
+
+    /**
      * This is the constructor for the Order class. It takes a Customer object as an
      * argument and initializes the orderID, orderStatus, dateCreated, oCustomerId,
      * oCustomerName, oCustomerAddress, and orderDetails fields.
@@ -64,7 +68,7 @@ public class Order {
  
          oCustomerId = customer.getId();
          oCustomerName = customer.getUserName();
-         oCustomerAddress = customer.getAddress();
+    
          // oCustomerPhone = oCustomer.getPhoneNo();
  
          DateTimeFormatter dateFormt = DateTimeFormatter.ofPattern("dd/MM/yyyy");

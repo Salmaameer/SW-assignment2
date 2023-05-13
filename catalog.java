@@ -4,27 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Catalog{
-    private static List<Category> categories;
+    private  List<Category> categories = new ArrayList<>();
+
 
     public Catalog() {
-        categories = new ArrayList<>();
+       
     }
 
-    public static void setCategories(List<Category> categories) {
-        Catalog.categories = categories;
+    public  void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 
     public List<Category> getCategories() {
         return categories;
     }
 
-    public static void addCategory(Category category) {
+    public  void addCategory(Category category) {
+
         categories.add(category);
+
     }
 
-    public void showItems() {
+    public  void showItems() {
         for (Category category : categories) {
-            category.showItem();
+            System.out.println("Category Name: " + category.getName());
+            category.showItems();
         }
     }
 
