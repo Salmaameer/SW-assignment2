@@ -1,25 +1,24 @@
-Original
-Barbecue
-Cheese
-Salt and Vinegar
-Ketchup
-Paprika
-Chili
-Sour Cream and Onion
-Cheese and Onion
-Spicy Tomato
-Garlic
-Black Pepper
-Smoked Bacon
-Roasted Chicken
-Pizza
-Salsa
-Lemon
-Honey Mustard
-Creamy Dill
-Chili Cheese.
-
-
+Original 2.50
+Barbecue 3.00
+Cheese 2.75
+Salt 3.25
+Vinegar 3.25
+Ketchup 2.50
+Paprika 3.50
+Chili 3.00
+Sour_Cream 2.75
+Onion 2.75
+Tomato 3.50
+Garlic 2.75
+Black_Pepper 3.00
+Smoked_Bacon 3.50
+Chicken 2.75
+Pizza 3.25
+Salsa 3.00
+Lemon 2.50
+Honey_Mustard 3.50
+Creamy_Dill 2.75
+Cheese 3.25
 
 
 

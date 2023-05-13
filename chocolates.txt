@@ -1,20 +1,20 @@
-KitKat
-Snickers
-Milky Way
-Hershey's Milk Chocolate
-Lindt Excellence
-Toblerone
-Cadbury Dairy Milk
-Ferrero Rocher
-Lindor
-Ghirardelli Chocolate
-Godiva Chocolate
-Nestle Crunch
-M&M's
-Kinder Chocolate
-Twix
-3 Musketeers
-Butterfinger
-Reese's Peanut Butter Cups
-Mars Bar
-Lindt Swiss Chocolate
+KitKat: 3.50
+Snickers: 2.75
+Milky_Way: 2.00
+Hershey's_Milk_Chocolate: 1.50
+Lindt_Excellence: 4.25
+Toblerone: 5.00
+Cadbury_Dairy_Milk: 2.50
+Ferrero_Rocher: 6.75
+Lindor: 4.50
+Ghirardelli_Chocolate: 5.25
+Godiva_Chocolate: 8.50
+Nestle_Crunch: 1.75
+M&M's: 1.25
+Kinder_Chocolate: 3.00
+Twix: 2.25
+3_Musketeers: 2.00
+Butterfinger: 2.50
+Reese's_Peanut_Butter_Cups: 3.50
+Mars_Bar: 2.25
+Lindt_Swiss_Chocolate: 4.00
