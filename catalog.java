@@ -15,9 +15,15 @@ public class catalog {
     public void addCategory(Category category) {
         categories.add(category);
     }
-    public void showItems() {
+   public void showProductsInCategory(String categoryName) {
         for (Category category : categories) {
-            category.showItem();
+            if (category.getName().equals(categoryName)) {
+                for (Product product : category.getProducts()) {
+                    System.out.println(product.getName() + " - $" + product.getPrice());
+                }
+                return;
+            }
         }
+      
     }
 }
