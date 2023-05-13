@@ -1,20 +1,20 @@
-Skittles
-Starburst
-Haribo Gummi Bears
-Reese's Pieces
-M&M's
-Snickers
-Twix
-Sour Patch Kids
-Swedish Fish
-Nerds
-KitKat
-Hershey's Kisses
-Jolly Ranchers
-Airheads
-Smarties
-Life Savers
-Laffy Taffy
-Butterfinger
-Baby Ruth
-Twizzlers.
+Skittles: 1.99
+Starburst: 2.49
+Haribo_Gummi_Bears: 3.99
+Reese's_Pieces: 1.79
+M&M's: 2.29
+Snickers: 1.99
+Twix: 2.49
+Sour_Patch_Kids: 2.99
+Swedish_Fish: 2.49
+Nerds: 1.49
+KitKat: 1.99
+Hershey's_Kisses: 1.49
+Jolly_Ranchers: 1.29
+Airheads: 1.79
+Smarties: 1.29
+Life_Savers: 2.99
+Laffy_Taffy: 1.99
+Butterfinger: 2.49
+Baby_Ruth: 2.99
+Twizzlers: 1.79
