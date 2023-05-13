@@ -27,7 +27,7 @@ public class Payment {
     
 
 
-    private Payment() {
+    Payment() {
         oPaymentId++;
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime now = LocalDateTime.now();  

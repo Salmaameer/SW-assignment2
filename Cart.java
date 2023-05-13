@@ -26,11 +26,14 @@ public class Cart {
     }
 
     public void viewCartDetails() {
-        System.out.println("Cart Details: ");
+       
         if( items.size() > 0){
+            System.out.println("Cart Details: ");
         for (CartItem item : items) {
             System.out.println("Name: " + item.getName() +  "\n Quantity: " + item.getQuantity() + "\n total price: " + item.getItemTotal());
         }
+        System.out.println("subTotal is :" + getSubTotal());
+
     }else{
         System.out.println("Your Cart is empty");
     }

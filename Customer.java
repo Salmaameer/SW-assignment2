@@ -17,7 +17,7 @@ public class Customer {
     private double loyaltyPoints;
     private Address address = new Address();
     private Cart cCart = new Cart();
-    private Order order = new Order();
+    private Order order;
 
     /**
      * This is the default constructor for the Customer class. It generates a random

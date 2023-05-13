@@ -4,8 +4,10 @@ import java.util.List;
 
 public class OrderDetails {
     private int orderID;
-    private Order order;
+    private Order order = new Order();
     private List<CartItem> products;
+    private Cart cart = new Cart();
+    private double subTotal;
 
     /**
      * 
@@ -16,14 +18,18 @@ public class OrderDetails {
      *              object, and the products field is set to the items in the
      *              customer’s cart.
      */
-    public OrderDetails(Order order) {
+    public OrderDetails(Order order,Cart cart) {
 
         this.orderID = order.getOrderID();
-        Customer customer = order.getoCustomer();
-        Cart cart = customer.getcCart();
+        
+        this.cart = cart;
 
-        // fill in the products
-        products = cart.getItems();
+         // fill in the products
+       
+        setProducts(cart.getItems());
+        setSubTotal(cart.getSubTotal());
+
+       
 
     }
 
@@ -57,6 +63,30 @@ public class OrderDetails {
 
     public void setProducts(List<CartItem> products) {
         this.products = products;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public double getSubTotal() {
+        return subTotal;
+    }
+
+    public void setSubTotal(double subTotal) {
+        this.subTotal = subTotal;
     }
 
 }

@@ -30,10 +30,10 @@ public class Login {
 
             Customer customer = acountExists(username);
             if (customer != null && customer.getPassword().equals(password)) {
-                System.out.print("Successful ,welcome to your page. ");
+                System.out.println("Successful ,welcome to your page. ");
                 return customer;
             } else {
-                System.out.print("Oops! Invalid username or password. ");
+                System.out.println("Oops! Invalid username or password. ");
                 System.out.print("Did you forget your password? (Y/N)");
                 String reset = scanner.nextLine();
                 if (reset.equalsIgnoreCase("Y")) {
@@ -57,7 +57,7 @@ public class Login {
                     System.out.print("Enter your new password: ");
                     String newPassword = scanner.nextLine();
                     updatePassword(username, newPassword);
-                    System.out.print("Your password has been reset successfully. Please try again to login.");
+                    System.out.println("Your password has been reset successfully. Please try again to login.");
                 }
             }
         }

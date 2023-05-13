@@ -2,7 +2,10 @@ import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Random;
-import java.util.random.*;;
+import java.util.random.*;
+import java.util.List;
+
+
 
 
 
@@ -26,15 +29,15 @@ public class Order {
     private  int orderID;
     private String dateCreated;
     private String dateShipped; 
-    private Customer oCustomer ;
+    private Customer oCustomer = new Customer();
     private int oCustomerId;
     private String oCustomerName;
-    private Address oCustomerAddress;
+    private Address oCustomerAddress = new Address();
     private String oCustomerPhone;
     private OrderStatus orderStatus;
-    private OrderDetails orderDetails;
-    private Payment payment;
-    private double subTotal;
+    private OrderDetails orderDetails ;
+    private Payment payment = new Payment();
+    private List<CartItem> products;
 
     
 
@@ -75,7 +78,12 @@ public class Order {
          LocalDateTime no = LocalDateTime.now();  
          dateCreated = ((String)dateFormt.format(no));
  
-         orderDetails = new OrderDetails(this);
+         orderDetails = new OrderDetails(this,customer.getcCart());
+
+         Cart cart = new Cart();
+         cart = oCustomer.getcCart();
+
+        
  
  
  
@@ -90,8 +98,12 @@ public class Order {
       *             method and sets it using the payment.setPaymentMethod() method.
       */
      public void putPaymentMethod(String payM){
- 
-         payment.setPaymentMethod(payM);
+        payment.setPaymentMethod(payM);
+        if(payment.getPaymentMethod() == PaymentMethod.CASH){
+            // will add 20 pound;
+       orderDetails.setSubTotal( (orderDetails.getSubTotal() + 20));
+        }
+         
  
      }
  
@@ -103,9 +115,9 @@ public class Order {
       */
  
     public void showOrderDetails(){
-        OrderDetails od = new OrderDetails(this);
+        
 
-        if(od.getProducts().size() == 0){
+        if(orderDetails.getProducts().size() == 0){
             System.out.println("There is no products in the cart!");
 
 
@@ -113,13 +125,13 @@ public class Order {
         System.out.println("your Order ID is : " + getOrderID());
         System.out.println("Order details :");
         System.out.println("Products ");
-        for( CartItem p : od.getProducts()){
+        for( CartItem p : orderDetails.getProducts()){
             System.out.println(p.getName());
             System.out.print("Quantity : " + p.getQuantity() + " " );
-            System.out.println("Price" + p.getItemTotal() );
+            System.out.println("Price :" + p.getItemTotal() );
         }
 
-        System.out.println("order subTotal : " + getSubTotal());
+        System.out.println("order subTotal : " + orderDetails.getSubTotal());
     }
 
 
@@ -134,20 +146,7 @@ public class Order {
  *         method is CASH, it adds 20 to the cart’s subtotal and sets the
  *         order’s subtotal to this value
  */
-    public double orderSubTotal(){
-
-        Cart cart = oCustomer.getcCart();
-
-        
-        if(payment.getPaymentMethod() ==  PaymentMethod.CASH){
-            // will add 20 pound;
-            setSubTotal( (cart.getSubTotal() + 20));
-        }else{
-            setSubTotal( cart.getSubTotal());
-        }
-        return subTotal;
-
-    }
+   
 
     /**
      * method is used to cancel an order. It first checks the current orderStatus of
@@ -169,6 +168,9 @@ public class Order {
 
 
     public void setOrderStatus(OrderStatus os){
+        if( os == OrderStatus.SHIPPED){
+            orderDetails.setSubTotal((orderDetails.getSubTotal())+50);
+        }
         orderStatus = os;
 
     
@@ -285,12 +287,13 @@ public class Order {
         this.dateShipped = dateShipped;
     }
 
-    public double getSubTotal() {
-        return subTotal;
+    public List<CartItem> getProducts() {
+        return products;
     }
 
-    public void setSubTotal(double subTotal) {
-        this.subTotal = subTotal;
+
+    public void setProducts(List<CartItem> products) {
+        this.products = products;
     }
 
     

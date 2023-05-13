@@ -1,6 +1,8 @@
 // package com.mycompany.toffee;
 
 import java.util.Scanner;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,128 +18,59 @@ public class ToffeeManager {
 
     // }
 
-    public static void startShopping(Customer customer) {
+    public static void startShopping(Cart cart , Catalog catalog) {
+
+       
         Scanner input = new Scanner(System.in);
-        Catalog catalog = new Catalog();
-        Product p1 = new Product("Galaxy", 70, "galaxy", "to7fa",10, 50);
-        List<Product> products =  new ArrayList<>();
-        products.add(p1);
-        p1 = new Product("Milky Way", 70, "Milky Way", "to7fa",15, 20);
-        products.add( p1);
-        p1.setDiscount(30);
-        Category category = new Category("chocolate",2, products, 0.2);
-        catalog.addCategory(category);
-
-        catalog.showItems();
-
-        Product p2 = catalog.searchItemByBrand("chocolate", "galaxy");
-
-        p2.setDiscount(0.3);
-        p2.displayProductDetails();
-
-        CartItem cartItem = new CartItem(2, p1);
-        Cart cart = new Cart();
-
-        cart.addToCartItem(cartItem);
-        cart.viewCartDetails();
-
         
+        System.out.print("category name: ");
+        String CategoryName = input.nextLine();
+        System.out.print("Enter the product name: ");
+        String ItemName = input.nextLine();
 
-        // catalog.addCategory(new Category("Chocolate1", 700, new Product[]{new Product("Chocolate Bars", 1, "KitKat", "delicious chocolate bars", Product.ProductType.Unit, 7.5, "KitKat.jpg", Product.ProductStatus.on_sale, 200, 0.2),
-        //         new Product("Chocolate2", 2, "Milky Way", "A delicious chocolate bar", Product.ProductType.Unit, 15, "Milk_way.jpg", Product.ProductStatus.on_sale, 170, 0.0),
-        //         new Product("Chocolate3", 3, "Hershey's", "A delicious chocolate bar", Product.ProductType.Unit, 20, "herShey.txt", Product.ProductStatus.on_sale, 120, 0.05),
-        //         new Product("Chocolate4", 4, "Cadbury", "A delicious chocolate bar", Product.ProductType.Unit, 8.5, "Cadbury.txt", Product.ProductStatus.on_sale, 50, 0.03),
-        //         new Product("Chocolate5", 5, "Lindt", "A delicious chocolate bar", Product.ProductType.Unit, 30, "Lindt.txt", Product.ProductStatus.on_sale, 70, 0.0),
-        //         new Product("Chocolate6", 6, "Twix", "delicious chocolate bars", Product.ProductType.Unit, 10, "Twix.txt", Product.ProductStatus.out_of_stock, 0, 0.0)}, 0.4));
+        Product searchedItem = catalog.searchItemByName(CategoryName,ItemName);
 
-        // catalog.addCategory(new Category("Candies", 50, new Product[]{new Product("candy1", 1, "Skittles", "A delicious candy", Product.ProductType.Loose, 7.5, "Skittles.jpg", Product.ProductStatus.on_sale, 200, 0.2),
-        //         new Product("candy2", 2, "Starburst", "A delicious candy", Product.ProductType.Loose, 15, "Starburst.jpg", Product.ProductStatus.on_sale, 170, 0.0),
-        //         new Product("candy3", 3, "Haribo Gummi Bears", "A delicious candy", Product.ProductType.Loose, 20, "Haribo.txt", Product.ProductStatus.on_sale, 120, 0.05),
-        //         new Product("candy4", 4, "M&M's", "A delicious candy", Product.ProductType.Loose, 8.5, "M&M's.txt", Product.ProductStatus.on_sale, 50, 0.03),
-        //         new Product("candy5", 5, "jelly cola", "A delicious candy", Product.ProductType.Loose, 30, "jelly.txt", Product.ProductStatus.on_sale, 70, 0.0),
-        //         new Product("candy6", 6, "Swedish Fish", "A delicious candy", Product.ProductType.Loose, 10, "Swedish_Fish.txt", Product.ProductStatus.out_of_stock, 0, 0.0)}, 0.3));
+        int quantity ;
 
-        // catalog.addCategory(new Category("Chips", 500, new Product[]{new Product(" Chips1", 1, "Barbecue", "A delicious chips", Product.ProductType.Unit, 10, "Barbecue.jpg", Product.ProductStatus.on_sale, 100, 0.2),
-        //         new Product("Chips2", 2, "Cheese", "A delicious chips", Product.ProductType.Unit, 15, "Cheese.jpg", Product.ProductStatus.on_sale, 100, 0.0),
-        //         new Product("Chips3", 3, "Chili", "A delicious chips", Product.ProductType.Unit, 20, "Chili.txt", Product.ProductStatus.on_sale, 100, 0.05),
-        //         new Product("Chips4", 4, "Garlic", "A delicious chips", Product.ProductType.Unit, 8.5, "Garlic.txt", Product.ProductStatus.on_sale, 100, 0.03),
-        //         new Product("Chips5", 5, "Pizza", "A delicious chips", Product.ProductType.Unit, 30, "Pizza.txt", Product.ProductStatus.on_sale, 100, 0.0),
-        //         new Product("Chips6", 6, "Salsa", "A delicious chips", Product.ProductType.Unit, 10, "Salsa.txt", Product.ProductStatus.out_of_stock, 0, 0.0)}, 0.3));
-        
-        
-                
-        
-        //         input = new Scanner(System.in);
-        // String categoryName = input.nextLine();
-        // // System.out.println("Here are the available products in our catalog divided to categories: ");
-        // // for (Category category : catalog.getCategories()) {
-        // //     if (category.getName().equalsIgnoreCase(categoryName)) {
-        // //         System.out.println("Category: " + category.getName());
-        // //         for (Product product : category.getProducts()) {
-        // //             System.out.println("Product: " + product.getName());
-        // //             System.out.println("ID: " + product.getID());
-        // //             System.out.println("Description: " + product.getDescription());
-        // //             System.out.println("Type: " + product.getProductType());
-        // //             System.out.println("Price: " + product.getPrice());
-        // //             System.out.println("Image: " + product.getImageFile());
-        // //             System.out.println("Status: " + product.getProductStatus());
-        // //             System.out.println("Quantity: " + product.getAvailableQuantity());
-        // //             System.out.println("Discount: " + product.getDiscount());
-        // //             System.out.println();
-        // //         }
-        // //     }
-        // // }
-        // System.out.print("category name: ");
-        // String searchCategory = input.nextLine();
-        // System.out.print("Enter the name or brand name: ");
-        // String searchItem = input.nextLine();
+      
+        if(searchedItem != null){
+            searchedItem.displayProductDetails();
+            System.out.print("\n");
+            System.out.print("do you want to add to cart?(y/n):");
+            String answer = input.nextLine();
+            if(answer.equalsIgnoreCase("y")){
+                System.out.print("Enter quantity : ");
+                quantity = input.nextInt();
+                CartItem cartItem = new CartItem(quantity,searchedItem );
+                cart.addToCartItem(cartItem);
+            }
+            
 
-        // Product searchedItem = catalog.searchItemByName(searchItem,searchCategory);
-        // System.out.print("Enter quantity : ");
-        // int quantity = input.nextInt();
-
-       
-
-        // // ProductType pt = searchItem.getProductType();
-
-
-
-        // // if(searchItem.getProductType() == ProductType.Loose){
-
-        // // }
-        // if(searchedItem != null){
-
-        //     System.out.println("Not null");
-        //     searchedItem.getDescription();
-        // //CartItem cartItem = new CartItem(quantity, searchedItem);
-        // }else{
-        //     System.out.println("null");
-        // }
-
-
-
-
-
-       
-        
-
-
+        }else{
+            System.out.println("This item doesnt exsit ");
+        }
     
-        
 
+       
+       
 
-        // Cart cart = new Cart();
-
-        // cart.addToCartItem(cartItem);
-
-        // cart.getItems();
-
-
+       
 
     }
 
 
-    public static void placeCustomerOrder(Customer customer) {
+    public static void placeCustomerOrder(Customer customer,Cart cart) {
+
+        // if(cart.getItemsQuantity() == 0){
+        //     System.out.println("Your cart is empty");
+        //     return;
+        // }
+
+        cart.viewCartDetails();
+        customer.setcCart(cart);
+        
+
+
 
         System.out.println("Enter your address to deliver to: ");
 
@@ -193,20 +126,25 @@ public class ToffeeManager {
 
         cOrder.showOrderDetails();
         System.out
-                .println("After this step you cant cancel the order, what do you want?  1-cancel 2- continue shipping");
+                .println("After this step you cant cancel the order, what do you want?  1-cancel 2- confirm shipping");
         System.out.print("Enter your choice here:");
         choice = scanner.nextInt();
 
         if (choice == 1) {
             cOrder.cancelOrder();
 
-        }
-
-        // change order status to shipped
+        }else{
+             // change order status to shipped
 
         oS = OrderStatus.SHIPPED;
         cOrder.setOrderStatus(oS);
+        }
+        cOrder.showOrderDetails();
+        System.out.println("Thank you for shopping from us ;)");
 
+
+
+       
+    
     }
 }
-
