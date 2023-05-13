@@ -31,7 +31,7 @@ public class Register {
 
     System.out.println("Welcome to User Registration");
 
-    // Customer customer = new Customer();
+    
 
     while(true){
         System.out.print("Enter your username (must be at least 4 characters long): ");

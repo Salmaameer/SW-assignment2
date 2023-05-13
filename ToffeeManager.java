@@ -1,4 +1,4 @@
-package com.mycompany.toffee;
+// package com.mycompany.toffee;
 
 import java.util.Scanner;
 
@@ -15,21 +15,21 @@ public class ToffeeManager {
     public static void startShopping(Customer customer) {
         Scanner input = new Scanner(System.in);
         catalog catalog = new catalog();
-        com.mycompany.toffee.catalog.addCategory(new Category("Chocolate1", 700, new Product[]{new Product("Chocolate Bars", 1, "KitKat", "delicious chocolate bars", Product.ProductType.Unit, 7.5, "KitKat.jpg", Product.ProductStatus.on_sale, 200, 0.2),
+        catalog.addCategory(new Category("Chocolate1", 700, new Product[]{new Product("Chocolate Bars", 1, "KitKat", "delicious chocolate bars", Product.ProductType.Unit, 7.5, "KitKat.jpg", Product.ProductStatus.on_sale, 200, 0.2),
                 new Product("Chocolate2", 2, "Milky Way", "A delicious chocolate bar", Product.ProductType.Unit, 15, "Milk_way.jpg", Product.ProductStatus.on_sale, 170, 0.0),
                 new Product("Chocolate3", 3, "Hershey's", "A delicious chocolate bar", Product.ProductType.Unit, 20, "herShey.txt", Product.ProductStatus.on_sale, 120, 0.05),
                 new Product("Chocolate4", 4, "Cadbury", "A delicious chocolate bar", Product.ProductType.Unit, 8.5, "Cadbury.txt", Product.ProductStatus.on_sale, 50, 0.03),
                 new Product("Chocolate5", 5, "Lindt", "A delicious chocolate bar", Product.ProductType.Unit, 30, "Lindt.txt", Product.ProductStatus.on_sale, 70, 0.0),
                 new Product("Chocolate6", 6, "Twix", "delicious chocolate bars", Product.ProductType.Unit, 10, "Twix.txt", Product.ProductStatus.out_of_stock, 0, 0.0)}, 0.4));
 
-        com.mycompany.toffee.catalog.addCategory(new Category("Candies", 50, new Product[]{new Product("candy1", 1, "Skittles", "A delicious candy", Product.ProductType.Loose, 7.5, "Skittles.jpg", Product.ProductStatus.on_sale, 200, 0.2),
+        catalog.addCategory(new Category("Candies", 50, new Product[]{new Product("candy1", 1, "Skittles", "A delicious candy", Product.ProductType.Loose, 7.5, "Skittles.jpg", Product.ProductStatus.on_sale, 200, 0.2),
                 new Product("candy2", 2, "Starburst", "A delicious candy", Product.ProductType.Loose, 15, "Starburst.jpg", Product.ProductStatus.on_sale, 170, 0.0),
                 new Product("candy3", 3, "Haribo Gummi Bears", "A delicious candy", Product.ProductType.Loose, 20, "Haribo.txt", Product.ProductStatus.on_sale, 120, 0.05),
                 new Product("candy4", 4, "M&M's", "A delicious candy", Product.ProductType.Loose, 8.5, "M&M's.txt", Product.ProductStatus.on_sale, 50, 0.03),
                 new Product("candy5", 5, "jelly cola", "A delicious candy", Product.ProductType.Loose, 30, "jelly.txt", Product.ProductStatus.on_sale, 70, 0.0),
                 new Product("candy6", 6, "Swedish Fish", "A delicious candy", Product.ProductType.Loose, 10, "Swedish_Fish.txt", Product.ProductStatus.out_of_stock, 0, 0.0)}, 0.3));
 
-        com.mycompany.toffee.catalog.addCategory(new Category("Chips", 500, new Product[]{new Product(" Chips1", 1, "Barbecue", "A delicious chips", Product.ProductType.Unit, 10, "Barbecue.jpg", Product.ProductStatus.on_sale, 100, 0.2),
+       catalog.addCategory(new Category("Chips", 500, new Product[]{new Product(" Chips1", 1, "Barbecue", "A delicious chips", Product.ProductType.Unit, 10, "Barbecue.jpg", Product.ProductStatus.on_sale, 100, 0.2),
                 new Product("Chips2", 2, "Cheese", "A delicious chips", Product.ProductType.Unit, 15, "Cheese.jpg", Product.ProductStatus.on_sale, 100, 0.0),
                 new Product("Chips3", 3, "Chili", "A delicious chips", Product.ProductType.Unit, 20, "Chili.txt", Product.ProductStatus.on_sale, 100, 0.05),
                 new Product("Chips4", 4, "Garlic", "A delicious chips", Product.ProductType.Unit, 8.5, "Garlic.txt", Product.ProductStatus.on_sale, 100, 0.03),
@@ -138,5 +138,4 @@ public class ToffeeManager {
 
     }
 }
-
 

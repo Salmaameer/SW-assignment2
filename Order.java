@@ -16,7 +16,11 @@ enum OrderStatus{
 
 }
 
-
+/**
+ * Order class represents an order in an e-commerce system
+ * it manipulates every thing related to the order so it can shows the details,
+ * cancels the order , deifine the order information 
+ */
 public class Order {
 
     private  int orderID;
@@ -40,39 +44,60 @@ public class Order {
     
     
 
-    Order(Customer customer){
+     /**
+     * This is the constructor for the Order class. It takes a Customer object as an
+     * argument and initializes the orderID, orderStatus, dateCreated, oCustomerId,
+     * oCustomerName, oCustomerAddress, and orderDetails fields.
+     * 
+     * @param customer
+     */
 
-       orderID = new Random().nextInt(9) + new Random().nextInt(9) + 
-       new Random().nextInt(9) + new Random().nextInt(9) + new Random().nextInt(9);
+     Order(Customer customer){
 
-        orderStatus = OrderStatus.waitPAYMENT;
-        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDateTime now = LocalDateTime.now();  
-        dateCreated = ((String)dateFormat.format(now));
-
-        oCustomerId = customer.getId();
-        oCustomerName = customer.getUserName();
-        oCustomerAddress = customer.getAddress();
-        // oCustomerPhone = oCustomer.getPhoneNo();
-
-        DateTimeFormatter dateFormt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDateTime no = LocalDateTime.now();  
-        dateCreated = ((String)dateFormt.format(no));
-
-        orderDetails = new OrderDetails(this);
-
-
-
-        
-
-    }
-
-    public void putPaymentMethod(String payM){
-
-        payment.setPaymentMethod(payM);
-
-    }
-
+        orderID = new Random().nextInt(9) + new Random().nextInt(9) + 
+        new Random().nextInt(9) + new Random().nextInt(9) + new Random().nextInt(9);
+ 
+         orderStatus = OrderStatus.waitPAYMENT;
+         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+         LocalDateTime now = LocalDateTime.now();  
+         dateCreated = ((String)dateFormat.format(now));
+ 
+         oCustomerId = customer.getId();
+         oCustomerName = customer.getUserName();
+         oCustomerAddress = customer.getAddress();
+         // oCustomerPhone = oCustomer.getPhoneNo();
+ 
+         DateTimeFormatter dateFormt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+         LocalDateTime no = LocalDateTime.now();  
+         dateCreated = ((String)dateFormt.format(no));
+ 
+         orderDetails = new OrderDetails(this);
+ 
+ 
+ 
+         
+ 
+     }
+ 
+     
+     /**
+      * @param payM
+      *             This method takes a string argument representing the payment
+      *             method and sets it using the payment.setPaymentMethod() method.
+      */
+     public void putPaymentMethod(String payM){
+ 
+         payment.setPaymentMethod(payM);
+ 
+     }
+ 
+     /**
+      * This method creates an instance of the OrderDetails class and checks if there
+      * are any products in the cart. If there are no products, it prints a message
+      * to the console. Otherwise, it prints the order ID and details of the products
+      * in the cart.
+      */
+ 
     public void showOrderDetails(){
         OrderDetails od = new OrderDetails(this);
 
@@ -98,7 +123,14 @@ public class Order {
     }
    
 
-
+/**
+ * 
+ * @return
+ *         calculates and returns the subtotal for an order. It first retrieves
+ *         the customer’s cart and checks the payment method. If the payment
+ *         method is CASH, it adds 20 to the cart’s subtotal and sets the
+ *         order’s subtotal to this value
+ */
     public double orderSubTotal(){
 
         Cart cart = oCustomer.getcCart();
@@ -114,13 +146,18 @@ public class Order {
 
     }
 
+    /**
+     * method is used to cancel an order. It first checks the current orderStatus of
+     * the order. If the orderStatus is SHIPPED
+     */
+
     public void cancelOrder(){
         if(orderStatus == OrderStatus.SHIPPED ){
             System.out.println("Order can't be cancelled, It is on the way to you!");
         }
         else{
             orderStatus = OrderStatus.CANCELLED;
-            System.out.println("Order has been canclled :(");
+            System.out.println("Order has been cancelled :(");
 
         }
 
