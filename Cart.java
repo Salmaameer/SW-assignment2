@@ -89,6 +89,17 @@ public class Cart {
         }
         System.out.println("Subtotal: " + calculateSubTotal());
     }
+    public void addToCartItem(Product item) {
+            items.add(item);
+            itemsQuantity += 1;
+            subTotal += item.getPrice();
+    }
+    public void removeItemFromCart(Product item) {
+        if ( items.contains(item) ) {
+            items.remove(item);
+            itemsQuantity -= 1;
+            subTotal -= item.getPrice();
+        }
 
 }
 
