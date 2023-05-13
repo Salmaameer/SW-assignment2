@@ -21,13 +21,18 @@ public class mainDemo {
 
 
 
+       
+
        System.out.println("Welcome to TOFFEE store, where you can find you Adrenaline ;)");
-       System.out.println("1-registr \n2-login \n3- Start Shopping \n ");
+       System.out.println("1-registr \n2-login \n3- Start Shopping \n4- checkout ");
        System.out.print("Enter your shoice:");
        int choice = scanner.nextInt();
 
        
-
+    while(choice != 0 ){
+        System.out.println("1-registr \n2-login \n3- Start Shopping \n4- checkout ");
+       System.out.print("Enter your shoice:");
+       choice = scanner.nextInt();
        switch (choice){
 
         case 1:
@@ -39,10 +44,24 @@ public class mainDemo {
         login.userlogin();
         break;
 
+        case 3:
+        ToffeeManager.startShopping(customer);
+
+        default :
+        System.out.println("Enter valis option :( ");
+        break;
+
+
        }
 
-       Order order = new Order(customer);
-       order.getOrderDetails();
+    }
+
+       
+
+
+    //    Order order = new Order(customer);
+    //    order.getOrderDetails();
+      
 
 
 

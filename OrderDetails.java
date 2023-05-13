@@ -5,7 +5,7 @@ import java.util.List;
 public class OrderDetails {
     private int orderID;
     private Order order;
-    private List<Product> products;
+    private List<CartItem> products;
 
     /**
      * 
@@ -51,11 +51,11 @@ public class OrderDetails {
      *         This method takes a list of Product objects as an argument and sets
      *         the value of the products field.
      */
-    public List<Product> getProducts() {
+    public List<CartItem> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<CartItem> products) {
         this.products = products;
     }
 

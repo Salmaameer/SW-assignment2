@@ -1,19 +1,43 @@
-// package com.mycompany.toffee;
+public class CartItem {
 
-public class cartItem {
     private String name;
     protected int id;
     protected int quantity;
     protected double unitPrice;
-    protected double subtotal;
+    protected double itemTotal;
 
-    public cartItem(String name, int id, int quantity, double unitPrice) {
+   
+
+     public CartItem(int quantity ,Product p) {
+        this.name = p.getName();
+        this.unitPrice = p.getPrice();
+        this.quantity = quantity;
+    }
+    CartItem(String name, int id, int quantity, double unitPrice) {
         this.name = name;
         this.id = id;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
-        this.subtotal = quantity * unitPrice;
+        this.itemTotal = quantity * unitPrice;
     }
+
+
+    public double calculateItemTotal(Product p) {
+               
+                double discount = p.getDiscount();
+                double price = p.getPrice();
+                itemTotal += ((price * discount) * quantity );
+            
+            return itemTotal;
+
+
+        }
+    
+
+
+
+
+
     public void setName(String name) {
         this.name = name;
     }
@@ -22,14 +46,14 @@ public class cartItem {
     }
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-        this.subtotal = quantity * unitPrice;
+        this.itemTotal = quantity * unitPrice;
     }
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
-    public void setSubtotal(double subtotal) {
-        this.subtotal = quantity * unitPrice;
-    }
+    // public void setSubtotal(double subtotal) {
+    //     this.itemTotal = quantity * unitPrice;
+    // }
     public String getName() {
         return name;
     }
@@ -43,11 +67,19 @@ public class cartItem {
         return unitPrice;
     }
     public double getSubtotal() {
-        return subtotal;
+        return itemTotal;
     }
     public void addItemToCart(int quantity) {
         this.quantity += quantity;
-        this.subtotal += quantity * unitPrice;
+        this.itemTotal += quantity * unitPrice;
     }
+    public double getItemTotal() {
+        return itemTotal;
+    }
+    public void setItemTotal(double itemTotal) {
+        this.itemTotal = itemTotal;
+    }
+    
 
+    
 }

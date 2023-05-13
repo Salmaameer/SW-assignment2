@@ -11,6 +11,7 @@ public class Product {
     public ProductStatus status;
     public int availableQuantity;
     public double discount;
+    
     public enum ProductStatus {
         out_of_stock,
         on_sale,
@@ -109,7 +110,6 @@ public class Product {
         System.out.println("Description: " + description);
         System.out.println("Product Type: " + type);
         System.out.println("Price: " + price);
-        System.out.println("Image File: " + imageFile);
         System.out.println("Product Status: " + status);
     }
     public void displayProductDetails() {

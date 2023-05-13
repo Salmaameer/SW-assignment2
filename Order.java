@@ -109,11 +109,10 @@ public class Order {
         System.out.println("your Order ID is : " + getOrderID());
         System.out.println("Order details :");
         System.out.println("Products ");
-        for( Product p : od.getProducts()){
+        for( CartItem p : od.getProducts()){
             System.out.println(p.getName());
-            System.out.println(p.getDescription());
-            System.out.print("Quantity : " + p.getProductQuantity() + " " );
-            System.out.println("Price" + p.getPrice() );
+            System.out.print("Quantity : " + p.getQuantity() + " " );
+            System.out.println("Price" + p.getItemTotal() );
         }
 
         System.out.println("order subTotal : " + getSubTotal());

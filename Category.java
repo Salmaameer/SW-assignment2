@@ -1,4 +1,4 @@
-package com.mycompany.toffee;
+// package com.mycompany.toffee;
 
 public class Category {
     private String name;

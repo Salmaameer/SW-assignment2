@@ -1,4 +1,4 @@
-package com.mycompany.toffee;
+// package com.mycompany.toffee;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,12 @@ public class Cart {
     private int itemsQuantity;
     private double itemPrice;
     private double subTotal;
-    private List<Product> items;
+    private List<CartItem> items;
+
+    Cart(){
+
+        
+    }
 
     public Cart(String imageFile, int itemsQuantity, double itemPrice) {
         this.imageFile = imageFile;
@@ -18,6 +23,30 @@ public class Cart {
         this.itemPrice = itemPrice;
         items = new ArrayList<>();
     }
+
+    public void viewCartDetails() {
+        System.out.println("Cart Details: ");
+        for (CartItem item : items) {
+            System.out.println("Name: " + item.getName() +  "\n Quantity: " + item.getQuantity() + "\n total price: " + item.getItemTotal());
+        }
+       
+    }
+    public void addToCartItem(CartItem item) {
+            items.add(item);
+            itemsQuantity += 1;
+            subTotal += item.getItemTotal();
+    }
+    public void removeItemFromCart(CartItem item) {
+        if ( items.contains(item) ) {
+            items.remove(item);
+            itemsQuantity -= 1;
+            subTotal -= item.getItemTotal();
+        }
+
+    }
+
+
+
 
     public void setImageFile(String imageFile) {
         this.imageFile = imageFile;
@@ -35,7 +64,7 @@ public class Cart {
         this.subTotal = subTotal;
     }
 
-    public void setItems(List<Product> items) {
+    public void setItems(List<CartItem> items) {
         this.items = items;
     }
 
@@ -55,51 +84,12 @@ public class Cart {
         return subTotal;
     }
 
-    public List<Product> getItems() {
+    public List<CartItem> getItems() {
         return items;
     }
 
-    public void addCartItem(Product item) {
-        items.add(item);
-    }
+    
+    
 
-    public void removeCartItem(Product item) {
-        items.remove(item);
-    }
-
-    public void updateItemQuantity(Product items, int itemQuantity) {
-        items.setAvailableQuantity(itemQuantity);
-    }
-
-    public double calculateSubTotal() {
-        double subTotal = 0.0;
-        for (Product item : items) {
-            double discount = item.getDiscount();
-            double price = item.getPrice();
-            int quantity = item.getAvailableQuantity();
-            subTotal += (price * quantity * discount);
-        }
-        return subTotal;
-    }
-
-    public void viewCartDetails() {
-        out.println("Cart Details: ");
-        for (Product item : items) {
-            out.println(item.getName() + item.getAvailableQuantity() + item.getPrice() * item.getAvailableQuantity());
-        }
-        System.out.println("Subtotal: " + calculateSubTotal());
-    }
-    public void addToCartItem(Product item) {
-            items.add(item);
-            itemsQuantity += 1;
-            subTotal += item.getPrice();
-    }
-    public void removeItemFromCart(Product item) {
-        if ( items.contains(item) ) {
-            items.remove(item);
-            itemsQuantity -= 1;
-            subTotal -= item.getPrice();
-        }
-
+    
 }
-

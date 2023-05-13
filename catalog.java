@@ -1,16 +1,17 @@
-package com.mycompany.toffee;
+// package com.mycompany.toffee;
 
 import java.util.ArrayList;
 import java.util.List;
-public class catalog {
+
+public class Catalog{
     private static List<Category> categories;
 
-    public catalog() {
+    public Catalog() {
         categories = new ArrayList<>();
     }
 
-    public void setCategories(List<Category> categories) {
-        catalog.categories = categories;
+    public static void setCategories(List<Category> categories) {
+        Catalog.categories = categories;
     }
 
     public List<Category> getCategories() {
@@ -27,25 +28,29 @@ public class catalog {
         }
     }
 
-    public Product searchItemByName(String name) {
+    public Product searchItemByName(String categoryName, String productName) {
         for (Category category : categories) {
-            for (Product product : category.getProducts()) {
-                if (product.getName().equalsIgnoreCase(name)) {
-                    return product;
+            if (category.getName().equalsIgnoreCase(categoryName)) {
+                for (Product product : category.getProducts()) {
+                    if (product.getName().equalsIgnoreCase(productName)) {
+                        return product;
+                    }
                 }
             }
         }
         return null;
     }
-        public Product searchItemByBrand (String item) {
-            for (Category category : categories) {
+    public Product searchItemByBrand(String categoryName, String productName) {
+        for (Category category : categories) {
+            if (category.getName().equalsIgnoreCase(categoryName)) {
                 for (Product product : category.getProducts()) {
-                    if (product.getBrand().equalsIgnoreCase(item)) {
+                    if (product.getBrand().equalsIgnoreCase(productName)) {
                         return product;
                     }
                 }
             }
-            return null;
         }
+        return null;
+    }
 
 }
