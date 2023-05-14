@@ -55,11 +55,13 @@ public class Catalog{
         }
     }
 
-    /**
-     *Searches for a product by name in the specified category
+   
+    
+    /** 
+     * this method Searches for a product by name in the specified category
      * @param categoryName
      * @param productName
-     * @return product with the specified name, or null if not found
+     * @return Product
      */
     public Product searchItemByName(String categoryName, String productName) {
         for (Category category : categories) {
@@ -75,10 +77,10 @@ public class Catalog{
     }
 
     /**
-     *searches for a product by brand in the specified category
+     *this method searches for a product by brand in the specified category
      * @param categoryName
      * @param productName
-     * @return product with the specified name, or null if not found
+     * @return product 
      */
     public Product searchItemByBrand(String categoryName, String productName) {
         for (Category category : categories) {

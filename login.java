@@ -1,8 +1,5 @@
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -12,11 +9,18 @@ import java.util.Scanner;
 
 
 
-
+/**
+ * This class is represents the login process and validate the user credentials 
+ */
 public class Login {
     private String username;
     private String password;
 
+    
+    /** 
+     * @return Customer
+     * prompts the user to enter their username and password. It checks if the entered credentials are valid
+     */
     public Customer userlogin() {
         Scanner scanner = new Scanner(System.in);
 
@@ -63,6 +67,12 @@ public class Login {
         }
     }
 
+    
+    /** 
+     * @param username
+     * @param newPassword
+     * this method  updates the password for a given username in the login file
+     */
     private void updatePassword(String username, String newPassword) {
         try {
             File file = new File("login.txt");
@@ -90,6 +100,12 @@ public class Login {
         }
     }
 
+    
+    /** 
+     * @param username
+     * @return Customer
+     * this method checks if an account with the given username exists in the login file and returns a Customer object if it does
+     */
     private Customer acountExists(String username) {
         try {
             File file = new File("login.txt");

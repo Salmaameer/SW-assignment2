@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 // package com.mycompany.toffee;
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,9 +7,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+
+
 /**
- *
- * @author Original
+ * This class is represents the registration process 
  */
 
 public class Register {
@@ -25,6 +23,11 @@ public class Register {
     private String email;
 
    
+    
+    /** 
+     * @param customer
+     * The method prompts the user to enter their username, email, password, name, and phone number. It performs validation on the entered values and saves the user’s credentials to a file if all values are valid
+     */
     public static void register(Customer customer) {
 
     Scanner scanner = new Scanner(System.in);
@@ -137,6 +140,12 @@ public class Register {
         e.printStackTrace();
     }
 }
+    
+    /** 
+     * @param userEmail
+     * @return boolean
+     * this method check if the entered email already exists in the login file
+     */
     private static boolean userEmailused(String userEmail) {
         try {
             File file = new File("login.txt");
@@ -166,6 +175,12 @@ public class Register {
 
 
 
+    
+    /** 
+     * @param username
+     * @return boolean
+     * this method check if the entered  username already exists in the login file
+     */
     private static boolean usernameExists(String username) {
         try {
             File file = new File("login.txt");

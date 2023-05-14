@@ -1,3 +1,7 @@
+
+/**
+ *class represents an item in a shopping cart. It has several fields including name, id, quantity, unitPrice, and itemTotal
+ */
 public class CartItem {
 
     private String name;
@@ -7,6 +11,11 @@ public class CartItem {
     protected double itemTotal;
 
    
+    /**
+     * takes an integer quantity and a Product object as arguments
+     * @param quantity
+     * @param p
+     */
 
      public CartItem(int quantity ,Product p) {
         this.name = p.getName();
@@ -16,6 +25,14 @@ public class CartItem {
 
         calculateItemTotal(p);
     }
+    /**
+     * this constructor takes a string name, integer id, integer quantity, and double unitPrice as arguments
+     * @param name
+     * @param id
+     * @param quantity
+     * @param unitPrice
+     * 
+     */
 
     CartItem(String name, int id, int quantity, double unitPrice) {
         this.name = name;
@@ -26,6 +43,12 @@ public class CartItem {
     }
 
 
+    
+    /** 
+     * The calculateItemTotal method calculates the total cost of the item by applying any discount from the given Product object
+     * @param p
+     * @return double
+     */
     private double calculateItemTotal(Product p) {
                
                 double discount = p.getDiscount();
@@ -43,44 +66,90 @@ public class CartItem {
 
 
 
+    
+    /** 
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
+    
+    /** 
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
+    
+    /** 
+     * @param quantity
+     */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
         this.itemTotal = quantity * unitPrice;
     }
+    
+    /** 
+     * @param unitPrice
+     */
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
-    // public void setSubtotal(double subtotal) {
-    //     this.itemTotal = quantity * unitPrice;
-    // }
+    
+    /** 
+     * @return String
+     */
+    
     public String getName() {
         return name;
     }
+    
+    /** 
+     * @return int
+     */
     public int getId() {
         return id;
     }
+    
+    /** 
+     * @return int
+     */
     public int getQuantity() {
         return quantity;
     }
+    
+    /** 
+     * @return double
+     */
     public double getUnitPrice() {
         return unitPrice;
     }
+    
+    /** 
+     * @return double
+     */
     public double getSubtotal() {
         return itemTotal;
     }
+    
+    /** 
+     * @param quantity
+     */
     public void addItemToCart(int quantity) {
         this.quantity += quantity;
         this.itemTotal += quantity * unitPrice;
     }
+    
+    /** 
+     * @return double
+     */
     public double getItemTotal() {
         return itemTotal;
     }
+    
+    /** 
+     * @param itemTotal
+     */
     public void setItemTotal(double itemTotal) {
         this.itemTotal = itemTotal;
     }

@@ -3,7 +3,9 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 
-
+/**
+ * enum named PaymentMethod that defines the possible payment methods
+ */
 enum PaymentMethod{
 
         CASH,
@@ -11,7 +13,9 @@ enum PaymentMethod{
         LOYALTYPOINTS,
         GIFTCARD
 }
-
+/**
+ * Payment class manipulates and intialize the informaation of the payment 
+ */
 public class Payment {
     private static int oPaymentId;
     //private int pOrderId;
@@ -19,14 +23,9 @@ public class Payment {
     private PaymentMethod paymentMethod;
 
 
-
-
-
-
-    
-    
-
-
+    /**
+     * default constructor 
+     */
     Payment() {
         oPaymentId++;
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -38,27 +37,46 @@ public class Payment {
     }
 
 
-
-
-
-
-
+    /** 
+     * @return int
+     */
     public int getoPaymentId() {
         return oPaymentId;
     }
+    
+    /** 
+     * @param oPaymentId
+     */
     public void setoPaymentId(int oPaymentId) {
         this.oPaymentId = oPaymentId;
     }
    
+    
+    /** 
+     * @return String
+     */
     public String getPaymentDate() {
         return paymentDate;
     }
+    
+    /** 
+     * @param paymentDate
+     */
     public void setPaymentDate(String paymentDate) {
         this.paymentDate = paymentDate;
     }
+    
+    /** 
+     * @return PaymentMethod
+     */
     public PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
+    
+    /** 
+     * @param payd
+     * The setPaymentMethod method takes a string argument representing the payment method and sets the value of the paymentMethod field
+     */
     public void setPaymentMethod(String payd) {
 
         payd = payd.toUpperCase();

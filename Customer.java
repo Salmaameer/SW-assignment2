@@ -3,9 +3,7 @@ import java.util.Scanner;
 
 
 /**
- * Customer class represents a customer in an e-commerce system
- * it manipulates every thing related to the customer 
- * that is either logged in or registerd
+ * Customer class represents a customer in an e-commerce system it manipulates every thing related to the customer that is either logged in or registerd
  * 
  */
 public class Customer {
@@ -20,8 +18,7 @@ public class Customer {
     private Order order;
 
     /**
-     * This is the default constructor for the Customer class. It generates a random
-     * ID for the customer and sets the value of the id field.
+     * This is the default constructor for the Customer class. It generates a random ID for the customer and sets the value of the id field.
      */
     public Customer() {
 
@@ -37,10 +34,7 @@ public class Customer {
      * @param email
      * @param password
      * 
-     *                 This is an overloaded constructor for the Customer class. It
-     *                 takes arguments for the customer’s email and password and
-     *                 sets the corresponding fields. It also generates a random ID
-     *                 for the customer and sets the value of the id field.
+     * This is an overloaded constructor for the Customer class. It takes arguments for the customer’s email and password and sets the corresponding fields. It also generates a random ID for the customer and sets the value of the id field.
      */
 
     public Customer(String email, String password) {
@@ -55,8 +49,7 @@ public class Customer {
     }
 
     /**
-     * this method if the customer wants 
-     * to change his address to another one
+     * this method if the customer wants to change his address to another one
      */
    
      public void setAddress(){
@@ -227,6 +220,11 @@ public class Customer {
     public Order getOrder() {
         return order;
     }
+
+    /**
+     * 
+     * @param order
+     */
 
     public void setOrder(Order order) {
         this.order = order;
