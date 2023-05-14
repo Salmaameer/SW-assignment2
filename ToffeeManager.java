@@ -7,17 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
+/**
+ * ToffeeManager class it manages and maintains the sequence of the system and provides the start shopping and place order methods 
+ */
 public class ToffeeManager {
 
-    // public static void welcoming(){
-    // System.out.println("Welcome to TOFFEE store, where you can find your
-    // Adrenaline ;)");
-    // System.out.println("1-register\n2-login\n3- Start Shopping\n 4-
-    // checkout");
+    
 
-    // }
-
+    
+    /** 
+     * @param cart
+     * @param catalog
+     * this method prompts the user to enter a category name and product name, then searches for the product in the catalog.
+     * 
+     */
     public static void startShopping(Cart cart , Catalog catalog) {
 
        
@@ -59,12 +62,19 @@ public class ToffeeManager {
     }
 
 
+    
+    /** 
+     * @param customer
+     * @param cart
+     * 
+     * this method allows the customer to view their cart details, enter their address, choose a payment method, and place an order
+     */
     public static void placeCustomerOrder(Customer customer,Cart cart) {
 
-        // if(cart.getItemsQuantity() == 0){
-        //     System.out.println("Your cart is empty");
-        //     return;
-        // }
+        if(cart.getItemsQuantity() == 0){
+            System.out.println("Your cart is empty");
+            return;
+        }
 
         cart.viewCartDetails();
         customer.setcCart(cart);

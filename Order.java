@@ -325,14 +325,7 @@ public class Order {
         this.dateShipped = dateShipped;
     }
 
-    public List<CartItem> getProducts() {
-        return products;
-    }
-
-
-    public void setProducts(List<CartItem> products) {
-        this.products = products;
-    }
+   
 
     
 }
