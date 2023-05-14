@@ -10,7 +10,9 @@ import java.util.List;
 
 
 
-
+/**
+ * 
+ */
 enum OrderStatus{
     waitPAYMENT,
     PAID,
@@ -47,14 +49,15 @@ public class Order {
     
     
 
+    /**
+     * default constractor does nothing
+     */
      public Order() {
     }
 
 
     /**
-     * This is the constructor for the Order class. It takes a Customer object as an
-     * argument and initializes the orderID, orderStatus, dateCreated, oCustomerId,
-     * oCustomerName, oCustomerAddress, and orderDetails fields.
+     * This is the constructor for the Order class. It takes a Customer object as an argument and initializes the orderID, orderStatus, dateCreated, oCustomerId,oCustomerName, oCustomerAddress, and orderDetails fields.
      * 
      * @param customer
      */
@@ -94,8 +97,8 @@ public class Order {
      
      /**
       * @param payM
-      *             This method takes a string argument representing the payment
-      *             method and sets it using the payment.setPaymentMethod() method.
+      * This method takes a string argument representing the payment method and sets it using the payment.setPaymentMethod() method If the payment
+ *         method is CASH, it adds 20 to the cart’s subtotal
       */
      public void putPaymentMethod(String payM){
         payment.setPaymentMethod(payM);
@@ -108,10 +111,7 @@ public class Order {
      }
  
      /**
-      * This method creates an instance of the OrderDetails class and checks if there
-      * are any products in the cart. If there are no products, it prints a message
-      * to the console. Otherwise, it prints the order ID and details of the products
-      * in the cart.
+      * This method creates an instance of the OrderDetails class and checks if there are any products in the cart. If there are no products, it prints a message to the console. Otherwise, it prints the order ID and details of the products in the cart.
       */
  
     public void showOrderDetails(){
@@ -138,19 +138,11 @@ public class Order {
     }
    
 
-/**
- * 
- * @return
- *         calculates and returns the subtotal for an order. It first retrieves
- *         the customer’s cart and checks the payment method. If the payment
- *         method is CASH, it adds 20 to the cart’s subtotal and sets the
- *         order’s subtotal to this value
- */
+
    
 
     /**
-     * method is used to cancel an order. It first checks the current orderStatus of
-     * the order. If the orderStatus is SHIPPED
+     * method is used to cancel an order. It first checks the current orderStatus of the order. If the orderStatus is SHIPPED
      */
 
     public void cancelOrder(){
@@ -166,7 +158,10 @@ public class Order {
 
     }
 
-
+/**
+ * 
+ * @param os
+ */
     public void setOrderStatus(OrderStatus os){
         if( os == OrderStatus.SHIPPED){
             orderDetails.setSubTotal((orderDetails.getSubTotal())+50);
@@ -175,50 +170,93 @@ public class Order {
 
     
     }
+    /**
+     * 
+     * @param id
+     */
     public void setCustomerID(int id){
        oCustomerId = id;
 
-    
     }
+    /**
+     * 
+     * @param name
+     */
     public void setCustomerName(String name){
        oCustomerName = name;
 
     
     }
+
+    /**
+     * 
+     * @param ad
+     */
     public void setCustomerAddress(Address ad){
         oCustomerAddress = ad;
     }
 
-    
+    /**
+     * 
+     * @return
+     */
     public  int getOrderID() {
         return orderID;
     }
 
+    /**
+     * 
+     * @return
+     */
     public String getDateCreated() {
         return dateCreated;
     }
 
+    /**
+     * 
+     * @return
+     */
     public String getDateShipped() {
         return dateShipped;
     }
 
+    /**
+     * 
+     * @return
+     */
     public int getCustomerId() {
         return oCustomerId;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getCusotmerName() {
         return oCustomerName;
     }
 
+    
+    /** 
+     * @return Address
+     */
     public Address getCusotmerAddress() {
         return oCustomerAddress;
     }
 
+    
+    /** 
+     * @return OrderStatus
+     */
     public OrderStatus getOrderStatus() {
         return orderStatus;
     }
 
 
+    
+    /** 
+     * @param orderID
+     */
     public  void setOrderID(int orderID) {
         this.orderID = orderID;
     }
@@ -287,7 +325,14 @@ public class Order {
         this.dateShipped = dateShipped;
     }
 
-   
+    public List<CartItem> getProducts() {
+        return products;
+    }
+
+
+    public void setProducts(List<CartItem> products) {
+        this.products = products;
+    }
 
     
 }
