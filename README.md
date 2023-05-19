@@ -1,1 +1,1 @@
-# SW-assignment2
+# Software engineering e-commerce application
